@@ -1,6 +1,6 @@
 # Restaurant-APP
 # ToDo list
-[ ] start
+- [x] start
 1. Menu:
     1. [ ] build a menu tab with categories of foodtype
     2. [ ] build a food menu tab under each specific category
