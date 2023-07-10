@@ -1,10 +1,10 @@
 // require( 'dotenv' ).config()
 const express = require( 'express' )
 const app = express()
+const path = require('path')
 
-app.get("/", function(req, res) {
-    res.send("Hello world");
-});
+
+app.use('/', express.static(path.join(__dirname, '/backend/public')))
 
 app.listen(3000, function() {
     console.log("server run on port 3000.");
