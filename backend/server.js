@@ -1,16 +1,18 @@
-// require( 'dotenv' ).config()
 const express = require( 'express' )
 const app = express()
 const path = require('path')
+const PORT = process.env.PORT || 3500
+
+// express.static is a biuld in middleware
+app.use( '/', express.static( path.join( __dirname, 'public' ) ) )
+
+app.use( '/', require( './routes/root' ) )
+app.use('/users', require('./routes/userRoutes'))
 
 
-app.get("/", function(req, res) {
-    res.send("Hello world");
-});
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
-app.listen(3000, function() {
-    console.log("server run on port 3000.");
-});
+// require( 'dotenv' ).config()
 // const path = require( 'path' )
 // const { logger } = require( './middleware/logger' )
 // const errorHandler = require( './middleware/errorHandler' )
