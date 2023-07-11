@@ -1,10 +1,12 @@
 import React from "react";
-
+import TopBar from "./TopBar";
+import Header from "./Header";
 
 function App() {
     return (
         <div>
-            <h1>hello world</h1>
+            <TopBar />
+            <Header />
         </div>
     );
 };
