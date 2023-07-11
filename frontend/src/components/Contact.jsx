@@ -12,10 +12,11 @@ function Contact() {
                         <p>Contact Us</p>
                     </div>
                 </div>
-
-                {/* <div data-aos="fade-up">
-                    <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" allowfullscreen></iframe>
-                </div> */}
+                <div style={{display: "flex", justifyContent: "center"}}>
+                    <div data-aos="fade-up" style={{width: "75%"}}>
+                        <iframe style={{border:"0", width: "100%", height: "400px"}} src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14731.679068291161!2d120.3034591!3d22.6194711!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e051f9658a3c7%3A0x4faa907c551d36ba!2z5LiJ6aSQ5pqW6aOf!5e0!3m2!1sen!2stw!4v1689065876343!5m2!1sen!2stw" frameborder="0" allowfullscreen title="googleMap"></iframe>
+                    </div>
+                </div>
 
                 <div class="container" data-aos="fade-up">
 
