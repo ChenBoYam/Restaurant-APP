@@ -5,7 +5,7 @@ import Hero from "./Hero";
 import About from "./About";
 import Menu from "./Menu";
 import Specials from "./Specials";
-import Events from "./Events";
+// import Events from "./Events";
 import Gallery from "./Gallery";
 import Contact from "./Contact";
 import Expo from "./Swiper";
@@ -25,7 +25,7 @@ function App() {
                 <Expo />
                 <Gallery />
                 <Contact />
-                
+
             </main>
             {/* <Footer /> */}
         </div>

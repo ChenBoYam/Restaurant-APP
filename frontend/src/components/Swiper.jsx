@@ -18,14 +18,15 @@ function Expo() {
     return (
         <div>
             <section id="events" class="events">
-                <div class="container" data-aos="fade-up">
-
+                {/* <div class="container" data-aos="fade-up"> */}
+                <div class="container">
                     <div class="section-title">
                         <h2>優惠活動</h2>
                         <p>優惠活動</p>
                     </div>
 
-                    <div class="events-slider swiper" data-aos="fade-up" data-aos-delay="100">
+                    {/* <div class="events-slider swiper" data-aos="fade-up" data-aos-delay="100"> */}
+                    <div class="events-slider swiper">
                         <div>
                             <Swiper
                                 // install Swiper modules
