@@ -9,10 +9,10 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
 // Import images
-import birthdayImg from "../components/img/event-birthday.jpg";
-import customImg from "../components/img/event-custom.jpg";
-import privateImg from "../components/img/event-private.jpg";
-import faviconImg from "../components/img/events-bg.jpg";
+import birthdayImg from "../img/event-birthday.jpg";
+import customImg from "../img/event-custom.jpg";
+import privateImg from "../img/event-private.jpg";
+import faviconImg from "../img/events-bg.jpg";
 
 function Expo() {
     return (
