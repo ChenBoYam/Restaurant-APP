@@ -8,8 +8,8 @@ function Events() {
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Events</h2>
-          <p>Organize Your Events in our Restaurant</p>
+          <h2>優惠活動</h2>
+          <p>優惠活動</p>
         </div>
 
         <div class="events-slider swiper" data-aos="fade-up" data-aos-delay="100">
@@ -42,10 +42,10 @@ function Events() {
               </div>
             </div>
 
-            <div class="swiper-slide">
+            {/* <div class="swiper-slide">
               <div class="row event-item">
                 <div class="col-lg-6">
-                  {/* <img src="assets/img/event-private.jpg" class="img-fluid" alt=""> */}
+                  <img src="assets/img/event-private.jpg" class="img-fluid" alt="">
                 </div>
                 <div class="col-lg-6 pt-4 pt-lg-0 content">
                   <h3>Private Parties</h3>
@@ -67,12 +67,12 @@ function Events() {
                   </p>
                 </div>
               </div>
-            </div>
+            </div> */}
 
-            <div class="swiper-slide">
+            {/* <div class="swiper-slide">
               <div class="row event-item">
                 <div class="col-lg-6">
-                  {/* <img src="assets/img/event-custom.jpg" class="img-fluid" alt=""> */}
+                  <img src="assets/img/event-custom.jpg" class="img-fluid" alt="">
                 </div>
                 <div class="col-lg-6 pt-4 pt-lg-0 content">
                   <h3>Custom Parties</h3>
@@ -94,7 +94,7 @@ function Events() {
                   </p>
                 </div>
               </div>
-            </div>
+            </div> */}
 
           </div>
           <div class="swiper-pagination"></div>

@@ -13,9 +13,9 @@ function Header() {
                         <ul>
                             <li><a class="nav-link scrollto active" href="#hero">首頁</a></li>
                             <li><a class="nav-link scrollto" href="#about">關於</a></li>
-                            <li><a class="nav-link scrollto" href="#menu">菜單</a></li>
-                            <li><a class="nav-link scrollto" href="#specials">特選</a></li>
-                            <li><a class="nav-link scrollto" href="#events">活動</a></li>
+                            <li><a class="nav-link scrollto" href="#menu">暖食菜單</a></li>
+                            <li><a class="nav-link scrollto" href="#specials">特選佳餚</a></li>
+                            <li><a class="nav-link scrollto" href="#events">優惠活動</a></li>
                             {/* <li><a class="nav-link scrollto" href="#chefs">Chefs</a></li> */}
                             <li><a class="nav-link scrollto" href="#gallery">精選照片</a></li>
                             {/* <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>

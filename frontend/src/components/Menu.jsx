@@ -8,8 +8,8 @@ function Menu() {
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Menu</h2>
-          <p>Check Our Tasty Menu</p>
+          <h2>暖食菜單</h2>
+          <p>暖食菜單</p>
         </div>
 
         <div class="row" data-aos="fade-up" data-aos-delay="100">

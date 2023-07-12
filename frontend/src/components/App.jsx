@@ -13,7 +13,7 @@ import Footer from "./Footer";
 function App() {
     return (
         <div>
-            <TopBar />
+            {/* <TopBar /> */}
             <Header />
             <Hero />
             <main id="main">
@@ -24,7 +24,7 @@ function App() {
                 <Gallery />
                 <Contact />
             </main>
-            <Footer />
+            {/* <Footer /> */}
         </div>
     );
 };

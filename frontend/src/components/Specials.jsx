@@ -8,8 +8,8 @@ function Specials() {
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Specials</h2>
-          <p>Check Our Specials</p>
+          <h2>特選佳餚</h2>
+          <p>特選佳餚</p>
         </div>
 
         <div class="row" data-aos="fade-up" data-aos-delay="100">

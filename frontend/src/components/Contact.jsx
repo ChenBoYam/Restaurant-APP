@@ -8,8 +8,8 @@ function Contact() {
                 <div class="container" data-aos="fade-up">
 
                     <div class="section-title">
-                        <h2>Contact</h2>
-                        <p>Contact Us</p>
+                        <h2>聯絡我們</h2>
+                        <p>聯絡我們</p>
                     </div>
                 </div>
                 <div style={{display: "flex", justifyContent: "center"}}>
@@ -26,29 +26,29 @@ function Contact() {
                             <div class="info">
                                 <div class="address">
                                     <i class="bi bi-geo-alt"></i>
-                                    <h4>Location:</h4>
-                                    <p>A108 Adam Street, New York, NY 535022</p>
+                                    <h4>地點:</h4>
+                                    <p>高雄市 苓雅區 中興街 167號</p>
                                 </div>
 
                                 <div class="open-hours">
                                     <i class="bi bi-clock"></i>
-                                    <h4>Open Hours:</h4>
+                                    <h4>營業時間:</h4>
                                     <p>
-                                        Monday-Saturday: <br />
-                                        11:00 AM - 2300 PM
+                                        星期一到星期日: <br />
+                                        11:00 AM - 20:45 PM
                                     </p>
                                 </div>
 
                                 <div class="email">
                                     <i class="bi bi-envelope"></i>
-                                    <h4>Email:</h4>
+                                    <h4>信箱:</h4>
                                     <p>info@example.com</p>
                                 </div>
 
                                 <div class="phone">
                                     <i class="bi bi-phone"></i>
-                                    <h4>Call:</h4>
-                                    <p>+1 5589 55488 55s</p>
+                                    <h4>電話:</h4>
+                                    <p>(07) 334-6263</p>
                                 </div>
 
                             </div>
@@ -60,24 +60,24 @@ function Contact() {
                             <form action="forms/contact.php" method="post" role="form" class="php-email-form">
                                 <div class="row">
                                     <div class="col-md-6 form-group">
-                                        <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required />
+                                        <input type="text" name="name" class="form-control" id="name" placeholder="姓名" required />
                                     </div>
                                     <div class="col-md-6 form-group mt-3 mt-md-0">
-                                        <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required />
+                                        <input type="email" class="form-control" name="email" id="email" placeholder="電子信箱" required />
                                     </div>
                                 </div>
                                 <div class="form-group mt-3">
-                                    <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required />
+                                    <input type="text" class="form-control" name="subject" id="subject" placeholder="標題" required />
                                 </div>
                                 <div class="form-group mt-3">
-                                    <textarea class="form-control" name="message" rows="8" placeholder="Message" required></textarea>
+                                    <textarea class="form-control" name="message" rows="8" placeholder="內容" required></textarea>
                                 </div>
                                 <div class="my-3">
                                     <div class="loading">Loading</div>
                                     <div class="error-message"></div>
                                     <div class="sent-message">Your message has been sent. Thank you!</div>
                                 </div>
-                                <div class="text-center"><button type="submit">Send Message</button></div>
+                                <div class="text-center"><button type="submit">發送訊息</button></div>
                             </form>
 
                         </div>
