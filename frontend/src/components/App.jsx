@@ -1,5 +1,5 @@
 import React from "react";
-import TopBar from "./TopBar";
+// import TopBar from "./TopBar";
 import Header from "./Header";
 import Hero from "./Hero";
 import About from "./About";
@@ -8,7 +8,8 @@ import Specials from "./Specials";
 import Events from "./Events";
 import Gallery from "./Gallery";
 import Contact from "./Contact";
-import Footer from "./Footer";
+import Expo from "./Swiper";
+// import Footer from "./Footer";
 
 function App() {
     return (
@@ -20,9 +21,11 @@ function App() {
                 <About />
                 <Menu />
                 <Specials />
-                <Events />
+                {/* <Events /> */}
+                <Expo />
                 <Gallery />
                 <Contact />
+                
             </main>
             {/* <Footer /> */}
         </div>

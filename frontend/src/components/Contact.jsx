@@ -12,9 +12,9 @@ function Contact() {
                         <p>聯絡我們</p>
                     </div>
                 </div>
-                <div style={{display: "flex", justifyContent: "center"}}>
-                    <div data-aos="fade-up" style={{width: "75%"}}>
-                        <iframe style={{border:"0", width: "100%", height: "400px"}} src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14731.679068291161!2d120.3034591!3d22.6194711!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e051f9658a3c7%3A0x4faa907c551d36ba!2z5LiJ6aSQ5pqW6aOf!5e0!3m2!1sen!2stw!4v1689065876343!5m2!1sen!2stw" frameborder="0" allowfullscreen title="googleMap"></iframe>
+                <div style={{ display: "flex", justifyContent: "center" }}>
+                    <div data-aos="fade-up" style={{ width: "75%" }}>
+                        <iframe style={{ border: "0", width: "100%", height: "400px" }} src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14731.679068291161!2d120.3034591!3d22.6194711!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e051f9658a3c7%3A0x4faa907c551d36ba!2z5LiJ6aSQ5pqW6aOf!5e0!3m2!1sen!2stw!4v1689065876343!5m2!1sen!2stw" frameborder="0" allowfullscreen title="googleMap"></iframe>
                     </div>
                 </div>
 
@@ -57,7 +57,7 @@ function Contact() {
 
                         <div class="col-lg-8 mt-5 mt-lg-0">
 
-                            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                            <form action="" method="post" class="php-email-form">
                                 <div class="row">
                                     <div class="col-md-6 form-group">
                                         <input type="text" name="name" class="form-control" id="name" placeholder="姓名" required />
