@@ -1,5 +1,10 @@
 import React from "react";
 
+import galleryOne from "../img/gallery/gallery-1.jpg";
+import galleryTwo from "../img/gallery/gallery-2.jpg";
+import galleryThree from "../img/gallery/gallery-3.jpg";
+import galleryFour from "../img/gallery/gallery-4.jpg";
+
 
 function Gallery() {
     return (
@@ -19,32 +24,32 @@ function Gallery() {
 
                         <div class="col-lg-3 col-md-4">
                             <div class="gallery-item">
-                                <a href="assets/img/gallery/gallery-1.jpg" class="gallery-lightbox" data-gall="gallery-item">
-                                    {/* <img src="assets/img/gallery/gallery-1.jpg" alt="" class="img-fluid"> */}
+                                <a href={galleryOne} class="gallery-lightbox" data-gall="gallery-item">
+                                    <img src={galleryOne} alt="" class="img-fluid" />
                                 </a>
                             </div>
                         </div>
 
                         <div class="col-lg-3 col-md-4">
                             <div class="gallery-item">
-                                <a href="assets/img/gallery/gallery-2.jpg" class="gallery-lightbox" data-gall="gallery-item">
-                                    {/* <img src="assets/img/gallery/gallery-2.jpg" alt="" class="img-fluid"> */}
+                                <a href={galleryTwo} class="gallery-lightbox" data-gall="gallery-item">
+                                    <img src={galleryTwo} alt="" class="img-fluid" />
                                 </a>
                             </div>
                         </div>
 
                         <div class="col-lg-3 col-md-4">
                             <div class="gallery-item">
-                                <a href="assets/img/gallery/gallery-3.jpg" class="gallery-lightbox" data-gall="gallery-item">
-                                    {/* <img src="assets/img/gallery/gallery-3.jpg" alt="" class="img-fluid"> */}
+                                <a href={galleryThree} class="gallery-lightbox" data-gall="gallery-item">
+                                    <img src={galleryThree} alt="" class="img-fluid" />
                                 </a>
                             </div>
                         </div>
 
                         <div class="col-lg-3 col-md-4">
                             <div class="gallery-item">
-                                <a href="assets/img/gallery/gallery-4.jpg" class="gallery-lightbox" data-gall="gallery-item">
-                                    {/* <img src="assets/img/gallery/gallery-4.jpg" alt="" class="img-fluid"> */}
+                                <a href={galleryFour} class="gallery-lightbox" data-gall="gallery-item">
+                                    <img src={galleryFour} alt="" class="img-fluid" />
                                 </a>
                             </div>
                         </div>
