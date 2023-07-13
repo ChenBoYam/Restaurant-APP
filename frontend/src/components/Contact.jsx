@@ -42,7 +42,7 @@ function Contact() {
                                 <div class="email">
                                     <i class="bi bi-envelope"></i>
                                     <h4>信箱:</h4>
-                                    <p>info@example.com</p>
+                                    <p>threemealwarmfood@gmail.com</p>
                                 </div>
 
                                 <div class="phone">
