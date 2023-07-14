@@ -1,4 +1,4 @@
-const validateInput = {
+const newCheckerFunction = {
     useNewCustomCheckerFunction: true, // using new version
     messages: {
         atLeastOneLetter: "The pass value must contain at least one letter from a-z and A-Z ranges!",
@@ -6,8 +6,8 @@ const validateInput = {
         atLeastOneSpecialChar: "The pass value must contain at least one special character including _! \"#$%&'()*+,\-.\\:\/;=?@^_"
     }
 }
-const validateSchema = {
-    name: {
+const validateSignUpSchema = {
+    username: {
         type: "string",
         optional: false
     },
@@ -33,10 +33,51 @@ const validateSchema = {
             stringMax: "Your pass value is too large",
         },
         optional: false
+    },
+    confirmPassword: {
+        type: "equal",
+        field: "password",
+        optional: false
+    }
+}
+const validateUpdateSchema = {
+    username: {
+        type: "string",
+        optional: true
+    },
+    email: {
+        type: "email",
+        optional: true,
+        label: "Email Address"
+    },
+    password: {
+        type: "string",
+        custom: ( v, errors ) =>
+        {
+            if ( v ) {
+                if ( !/[0-9]/.test( v ) ) errors.push( { type: "atLeastOneDigit" } );
+                if ( !/[a-zA-Z]/.test( v ) ) errors.push( { type: "atLeastOneLetter" } );
+                if ( !/[_! \"#$%&'()*+,\-.\\:\/;=?@^_]/.test( v ) ) errors.push( { type: "atLeastOneSpecialChar" } );
+            }
+            return v;
+        },
+        min: 8,
+        max: 20,
+        messages: {
+            stringPattern: "pass value must contain a digit",
+            stringMin: "Your pass value is too short",
+            stringMax: "Your pass value is too large",
+        },
+        optional: true
+    },
+    id: {
+        type: "string",
+        optional: false
     }
     // confirmPassword: { type: "equal", field: "password" }
 }
 module.exports = {
-    validateInput,
-    validateSchema
+    newCheckerFunction,
+    validateSignUpSchema,
+    validateUpdateSchema
 }
