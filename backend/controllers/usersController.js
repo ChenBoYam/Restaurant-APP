@@ -2,6 +2,7 @@ const User = require( '../models/User' )
 const Book = require( '../models/Book' )
 const asyncHandler = require( 'express-async-handler' )
 const Validator = require( 'fastest-validator' );
+const { validateInput, validateSchema } = require( '../config/validateInput' )
 const bcrypt = require( 'bcrypt' )
 
 // @desc Get all the users
@@ -17,61 +18,25 @@ const getAllUsers = asyncHandler( async ( req, res ) =>
     res.json( users )
 } )
 
-const signUpValidator = ( clientInput, res ) =>
+function signUpValidator ( clientInput, res )
 {
-    const schema = {
-        name: {
-            type: "string",
-            optional: false
-        },
-        // email: { type: "email", optional: false, label: "Email Address" },
-        password: {
-            type: "string",
-            custom: ( v, errors ) =>
-            {
-                if ( !/[0-9]/.test( v ) ) errors.push( { type: "atLeastOneDigit" } );
-                if ( !/[a-zA-Z]/.test( v ) ) errors.push( { type: "atLeastOneLetter" } );
-                if ( !/[_! \"#$%&'()*+,\-.\\:\/;=?@^_]/.test( v ) ) errors.push( { type: "atLeastOneSpecialChar" } );
-                return v;
-            },
-            min: 8,
-            max: 20,
-            messages: {
-                stringPattern: "pass value must contain a digit",
-                stringMin: "Your pass value is too short",
-                stringMax: "Your pass value is too large",
-            },
-            optional: false
-        },
-        // confirmPassword: { type: "equal", field: "password" }
-        roles: {
-            type: "array",
-            items: "string",
-            default: [ "employee" ],
-            enum: [ "employee", "admin" ],
-            optional: false
-        }
-
-    }
-
-    const v = new Validator( {
-        useNewCustomCheckerFunction: true, // using new version
-        messages: {
-            atLeastOneLetter: "The pass value must contain at least one letter from a-z and A-Z ranges!",
-            atLeastOneDigit: "The pass value must contain at least one digit from 0 to 9!",
-            atLeastOneSpecialChar: "The pass value must contain at least one special character including _! \"#$%&'()*+,\-.\\:\/;=?@^_"
+    return new Promise( ( resolve, reject ) =>
+    {
+        const v = new Validator( validateInput )
+        
+        if ( !v.validate( clientInput, validateSchema ) ) {
+            reject( res.status( 400 ).json( {
+                message: "Validation failed!",
+                error: validatorResponse
+            } ) )
+        } else {
+            resolve( res.status( 201 ).json( {
+                message: "Validation Success!",
+            } ) )
         }
     } )
-
-    const validatorResponse = v.validate( clientInput, schema )
-    
-    if ( !validatorResponse ) {
-        return res.status( 400 ).json( {
-            message: "Validation failed!",
-            error: validatorResponse
-        } )
-    }
 }
+
 // @desc Create new a user
 // @route POST /users
 // @access private 
@@ -79,11 +44,12 @@ const createUser = asyncHandler( async ( req, res ) =>
 {
     const clientInput = {
         name: req.body.name,
-        // email: req.body.email,
+        email: req.body.email,
         password: req.body.password,
-        roles: req.body.roles
+        // roles: req.body.roles
     }
-    signUpValidator( clientInput, res )
+    const validated = await signUpValidator( clientInput, res )
+    
     // exec is use to make it an await promise
     const duplicate = await User.findOne( { username } ).lean().exec()
 
