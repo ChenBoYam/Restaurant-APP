@@ -10,6 +10,7 @@ import Gallery from "./Gallery";
 import Contact from "./Contact";
 import Expo from "./Swiper";
 // import Footer from "./Footer";
+import Login from "./Login";
 
 function App() {
     return (
@@ -19,6 +20,7 @@ function App() {
             <Hero />
             <main id="main">
                 <About />
+                <Login />
                 <Menu />
                 <Specials />
                 {/* <Events /> */}

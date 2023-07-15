@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Navbar, Nav } from 'react-bootstrap';
+import Login from './Login';
 
 
 function Header() {
@@ -39,10 +40,16 @@ function Header() {
                             </Nav>
                         </Navbar.Collapse>
                     </Navbar>
+                    {/* <Login /> */}
 
-                    <a href="#book-a-table" className="book-a-table-btn scrollto d-none d-lg-flex">
-                        訂位
-                    </a>
+
+                    <div style={{ display: 'flex', justifyContent: 'center', gap: '10px' }}>
+                        <Login />
+                        <a href="#book-a-table" className="book-a-table-btn scrollto d-none d-lg-flex">
+                            訂位
+                        </a>
+                    </div>
+
                 </Container>
             </header>
         </div>

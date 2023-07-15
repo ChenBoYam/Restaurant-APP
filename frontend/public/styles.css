@@ -237,6 +237,29 @@ h6 {
   }
 }
 
+.btn-primary {
+  --bs-btn-hover-border-color: transparent;
+}
+
+.custom-modal-style .modal-content {
+  border-color: #cda45e;
+  box-shadow: 0;
+  /* border-radius: 5px; */
+}
+
+.custom-modal-style .modal-body {
+  border-bottom-left-radius: 7px; /* Adjust this value as per your need */
+  border-bottom-right-radius: 7px; /* Adjust this value as per your need */
+}
+
+.login-submit-button {
+  margin-left: 0;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white !important;
+  opacity: 0.5 !important;
+}
 /*--------------------------------------------------------------
   # Navigation Menu
   --------------------------------------------------------------*/
