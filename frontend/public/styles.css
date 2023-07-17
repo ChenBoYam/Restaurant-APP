@@ -1794,3 +1794,36 @@ section {
   align-items: center;
   height: 15vh;
 }
+
+/*--------------------------------------------------------------
+  # Reservation
+  --------------------------------------------------------------*/
+
+.btn-reservation-custom {
+    border-color: #cda45e;
+    color: #fff;
+}
+
+.btn-reservation-custom:hover {
+    background-color: #cda45e;
+    color: #fff;
+}
+
+.btn-custom-active {
+    background-color: #cda45e;
+    color: #fff;
+}
+
+.datePicker {
+  border-color: #cda45e;
+  background-color: black;
+  color: white;
+}
+
+.datePickerLabel {
+  display: block;
+  margin-bottom: .5rem;
+  font-size: .875em;
+  font-weight: bold;
+  color: #212529;
+}

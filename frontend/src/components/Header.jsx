@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Navbar, Nav } from 'react-bootstrap';
 import Login from './Login';
+import ReservationForm from "./Reservation";
 
 function Header() {
   const handleNavClick = (e, target) => {
@@ -54,9 +55,7 @@ function Header() {
 
           <div style={{ display: 'flex', justifyContent: 'center', gap: '10px' }}>
             <Login />
-            <a href="#book-a-table" className="book-a-table-btn scrollto d-none d-lg-flex">
-              訂位
-            </a>
+            <ReservationForm />
           </div>
 
         </Container>

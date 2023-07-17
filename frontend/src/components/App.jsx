@@ -9,6 +9,7 @@ import Specials from "./Specials";
 import Gallery from "./Gallery";
 import Contact from "./Contact";
 import Expo from "./Swiper";
+
 // import Footer from "./Footer";
 
 function App() {
