@@ -62,7 +62,7 @@ function Login ()
         }
       } else {
         // Handle signup logic
-        const response = await axios.post( 'http://3mealfood.com/users', {
+        const response = await axios.post( 'http://backend.3mealfood.com/users', {
           username,
           email,
           password,
