@@ -1814,6 +1814,11 @@ section {
     color: #fff;
 }
 
+.time-picker-btn {
+    margin-left: 10px !important;
+    border-radius: 6px !important;
+}
+
 .datePicker {
   border-color: #cda45e;
   background-color: black;
@@ -1827,3 +1832,8 @@ section {
   font-weight: bold;
   color: #212529;
 }
+
+.modal {
+  --bs-modal-width: 680px;
+}
+

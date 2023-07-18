@@ -39,7 +39,7 @@ function ReservationForm() {
                 訂位
             </Button>
 
-            <Modal show={show} onHide={handleClose} centered dialogClassName="custom-modal-style">
+            <Modal show={show} onHide={handleClose} centered dialogClassName="custom-modal-style wide-modal">
                 <Modal.Header closeButton className="justify-content-center" style={{ backgroundColor: 'black', color: 'white', borderBottom: '1px solid #cda45e' }}>
                     <Modal.Title>訂位</Modal.Title>
                 </Modal.Header>
