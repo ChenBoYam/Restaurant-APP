@@ -26,7 +26,11 @@ const createUser = asyncHandler( async ( req, res ) =>
 {
 
     const validatedInput = await signUpValidator( req, res )
-
+    
+    if ( validatedInput.error ) {
+       
+        return res.status( 402 ).json( validatedInput );// 402 stand for validation error
+    }
     // exec is use to make it an await promise
     const duplicate = await User.findOne( {
         $or: [
@@ -68,8 +72,9 @@ const createUser = asyncHandler( async ( req, res ) =>
 // @access private 
 const updateUser = asyncHandler( async ( req, res ) =>
 {
+    
     const validatedInput = await updateValidator( req, res )
-
+    
     const user = await User.findById( validatedInput.id )
 
     if ( !user ) {
@@ -160,10 +165,11 @@ function signUpValidator ( req, res )
         const v = new Validator( newCheckerFunction )
         const validatorResponse = v.validate( clientInput, validateSignUpSchema )
         if ( validatorResponse !== true ) {
-            reject( res.status( 400 ).json( {
-                message: "Validation failed!",
-                error: validatorResponse
-            } ) )
+            const errorResponse = {
+                message: validatorResponse,
+            }
+            console.log("this is running")
+            reject( errorResponse )
         } else {
             // console.log(`$passed: ${pass}`)
             resolve( clientInput )
@@ -184,10 +190,11 @@ function updateValidator ( req, res )
         const v = new Validator( newCheckerFunction )
         const validatorResponse = v.validate( clientInput, validateUpdateSchema )
         if ( validatorResponse !== true ) {
-            reject( res.status( 400 ).json( {
-                message: "Validation failed!",
-                error: validatorResponse
-            } ) )
+            const errorResponse = {
+                message: validatorResponse,
+            }
+            
+            reject( errorResponse )
         } else {
             resolve( clientInput )
         }
