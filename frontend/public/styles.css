@@ -1833,7 +1833,7 @@ section {
   color: #212529;
 }
 
-.modal {
+.wide-modal {
   --bs-modal-width: 680px;
 }
 
