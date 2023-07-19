@@ -62,7 +62,8 @@ function Login ()
         }
       } else {
         // Handle signup logic
-        const response = await axios.post( 'http://localhost:3500/users', {
+        const postRoute = `${process.env.SERVER_ADDRESS}/users`
+        const response = await axios.post( postRoute, {
           username,
           email,
           password,
