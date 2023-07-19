@@ -168,7 +168,7 @@ function signUpValidator ( req, res )
             const errorResponse = {
                 message: validatorResponse,
             }
-            console.log("this is running")
+            // console.log("this is running")
             reject( errorResponse )
         } else {
             // console.log(`$passed: ${pass}`)

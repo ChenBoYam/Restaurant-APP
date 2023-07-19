@@ -62,7 +62,7 @@ function Login ()
         }
       } else {
         // Handle signup logic
-        const response = await axios.post( 'http://backend.3mealfood.com/users', {
+        const response = await axios.post( 'http://localhost:3500/users', {
           username,
           email,
           password,
@@ -185,7 +185,7 @@ function Login ()
                 />
               </Form.Group>
 
-              { error && (
+              { Array.isArray(error) && (
                 <div className="error-messages">
                   { error.map( ( errorMessage, index ) => (
                     <p key={ index } className="error-message">
