@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { Button, Modal, Form } from 'react-bootstrap';
 import axios from 'axios';
 
-function Login ()
+var checkLogin = true;
+
+function Login ({clickLogin})
 {
-  const [ showModal, setShowModal ] = useState( false );
+  var [ showModal, setShowModal ] = useState( false );
   const [ isLogin, setIsLogin ] = useState( true );
   const [ email, setEmail ] = useState( '' );
   const [ password, setPassword ] = useState( '' );
@@ -82,12 +84,17 @@ function Login ()
       setError( `An unexpected error occurred. Error: ${error}` );
     }
   };
+  checkLogin = isLogin;
 
   return (
     <>
+
+    
       <Button className="book-a-table-btn scrollto d-none d-lg-flex" onClick={ handleShow }>
         登入
       </Button>
+      
+      
 
       <Modal show={ showModal } onHide={ handleClose } centered dialogClassName="custom-modal-style">
         <Modal.Header closeButton className="justify-content-center" style={ { backgroundColor: 'black', color: 'white', borderBottom: '1px solid #cda45e' } }>
@@ -214,6 +221,7 @@ function Login ()
       </Modal>
     </>
   );
-}
+};
 
 export default Login;
+export {checkLogin};

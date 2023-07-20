@@ -4,6 +4,7 @@ import { Button, Modal, Form, Row, Col } from 'react-bootstrap';
 import 'react-datepicker/dist/react-datepicker.css';
 import TimePicker from './TimePicker';
 import CustomDatePicker from "./CustomDatePicker"
+import Login, { checkLogin } from './Login';
 
 function ReservationForm() {
     const [show, setShow] = useState(false);
@@ -33,13 +34,15 @@ function ReservationForm() {
         setChildren(e.target.value);
     };
 
+
     return (
         <>
             <Button className="book-a-table-btn scrollto d-none d-lg-flex" onClick={handleShow}>
                 訂位
             </Button>
 
-            <Modal show={show} onHide={handleClose} centered dialogClassName="custom-modal-style wide-modal">
+
+            {false ? (<Modal show={show} onHide={handleClose} centered dialogClassName="custom-modal-style wide-modal">
                 <Modal.Header closeButton className="justify-content-center" style={{ backgroundColor: 'black', color: 'white', borderBottom: '1px solid #cda45e' }}>
                     <Modal.Title>訂位</Modal.Title>
                 </Modal.Header>
@@ -99,7 +102,15 @@ function ReservationForm() {
                         </div>
                     </Form>
                 </Modal.Body>
-            </Modal>
+            </Modal>) : (<Modal show={show} onHide={handleClose} centered dialogClassName="custom-modal-style">
+                <Modal.Header closeButton className="justify-content-center" style={{ backgroundColor: 'black', color: 'white', borderBottom: '1px solid #cda45e' }}>
+                    <Modal.Title>還沒登入嗎？</Modal.Title>
+                </Modal.Header>
+                <Modal.Body style={{ backgroundColor: 'black', color: 'white', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    <Login />
+                </Modal.Body>
+            </Modal>)}
+
         </>
     );
 }
