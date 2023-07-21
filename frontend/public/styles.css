@@ -1837,3 +1837,15 @@ section {
   --bs-modal-width: 680px;
 }
 
+/*--------------------------------------------------------------
+  # Login by third party
+  --------------------------------------------------------------*/
+
+.google-login-btn {
+  width: 100% ;
+  background-color: #db4437; 
+  color: white;
+  border: none ;
+  padding: 10px; 
+  border-radius: 6px;
+}

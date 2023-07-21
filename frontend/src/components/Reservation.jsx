@@ -19,6 +19,7 @@ function useReservationForm() {
 
     return { show, handleShowWindow, handleCloseWindow };
 }
+
 function ReservationForm() {
     const [date, setDate] = useState(null);
     const [adults, setAdults] = useState('');

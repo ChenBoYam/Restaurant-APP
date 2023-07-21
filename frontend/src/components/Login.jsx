@@ -3,6 +3,7 @@ import { Button, Modal, Form } from 'react-bootstrap';
 import axios from 'axios';
 import LoginOrRegister from './LoginOrRegister';
 import InputLoginForm from './InputForm';
+import { GoogleLogin, useGoogleLogin } from '@react-oauth/google';
 
 var checkLogin = true;
 
@@ -84,15 +85,30 @@ function Login() {
   };
   checkLogin = isLogin;
 
+
+  const responseGoogle = (response) => {
+    // The user successfully logged in with Google.
+    console.log(response);
+  };
+
+  const errorGoogle = (error) => {
+    // An error occurred during the login process.
+    console.error(error);
+  };
+  const loginGoogle = useGoogleLogin({
+    onSuccess: responseGoogle,
+    onError: errorGoogle
+  })
+
   return (
     <div>
       <div style={{ display: 'flex', justifyContent: 'center', gap: '10px' }}>
         <Button className="book-a-table-btn scrollto d-none d-lg-flex" onClick={handleShow}>
           登入
         </Button>
-        <Button className="book-a-table-btn scrollto d-none d-lg-flex" onClick={handleShow}>
+        {/* <Button className="book-a-table-btn scrollto d-none d-lg-flex" onClick={handleShow}>
           訂位
-        </Button>
+        </Button> */}
       </div>
       <Modal show={showModal} onHide={handleClose} centered dialogClassName="custom-modal-style">
         <Modal.Header closeButton className="justify-content-center" style={{ backgroundColor: 'black', color: 'white', borderBottom: '1px solid #cda45e' }}>
@@ -146,7 +162,13 @@ function Login() {
             {isLogin ?
               (<LoginOrRegister buttonName="登入" text="沒有註冊嗎？" anotherButton="立即註冊" handleSubmit={handleSubmit} handleToggleSignup={handleToggleSignup} />) :
               (<LoginOrRegister buttonName="註冊" text="已有帳號？" anotherButton="登入" handleSubmit={handleSubmit} handleToggleSignup={handleToggleSignup} />)}
+
+
           </Form>
+          <hr style={{ borderColor: 'white' }} />
+            <button onClick={() => loginGoogle()} className='google-login-btn' >
+              <i class="bi bi-google">{" "}</i>使用 Google 帳號登入
+            </button>
         </Modal.Body>
       </Modal>
     </div>
