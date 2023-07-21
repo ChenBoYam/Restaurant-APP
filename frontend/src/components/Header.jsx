@@ -54,7 +54,7 @@ function Header() {
           </Navbar>
 
           <div style={{ display: 'flex', justifyContent: 'center', gap: '10px' }}>
-            <Login buttonShow={true}/>
+            <Login />
             <ReservationForm />
           </div>
 

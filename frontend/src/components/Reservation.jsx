@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { Button, Modal, Form, Row, Col } from 'react-bootstrap';
 // import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -6,14 +6,25 @@ import TimePicker from './TimePicker';
 import CustomDatePicker from "./CustomDatePicker"
 import Login, { checkLogin } from './Login';
 
-function ReservationForm() {
+function useReservationForm() {
     const [show, setShow] = useState(false);
+
+    const handleCloseWindow = useCallback(() => {
+        setShow(false);
+    }, []);
+
+    const handleShowWindow = useCallback(() => {
+        setShow(true);
+    }, []);
+
+    return { show, handleShowWindow, handleCloseWindow };
+}
+function ReservationForm() {
     const [date, setDate] = useState(null);
     const [adults, setAdults] = useState('');
     const [children, setChildren] = useState('');
 
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    const { show, handleShowWindow, handleCloseWindow } = useReservationForm();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -23,7 +34,7 @@ function ReservationForm() {
         setAdults('');
         setChildren('');
         setDate(null);
-        handleClose();
+        handleCloseWindow();
     };
 
     const handleAdultChange = (e) => {
@@ -37,12 +48,12 @@ function ReservationForm() {
 
     return (
         <>
-            <Button className="book-a-table-btn scrollto d-none d-lg-flex" onClick={handleShow}>
+            <Button className="book-a-table-btn scrollto d-none d-lg-flex" onClick={handleShowWindow}>
                 訂位
             </Button>
 
 
-            {false ? (<Modal show={show} onHide={handleClose} centered dialogClassName="custom-modal-style wide-modal">
+            {checkLogin ? (<Modal show={show} onHide={handleCloseWindow} centered dialogClassName="custom-modal-style wide-modal">
                 <Modal.Header closeButton className="justify-content-center" style={{ backgroundColor: 'black', color: 'white', borderBottom: '1px solid #cda45e' }}>
                     <Modal.Title>訂位</Modal.Title>
                 </Modal.Header>
@@ -102,17 +113,19 @@ function ReservationForm() {
                         </div>
                     </Form>
                 </Modal.Body>
-            </Modal>) : (<Modal show={show} onHide={handleClose} centered dialogClassName="custom-modal-style">
-                <Modal.Header closeButton className="justify-content-center" style={{ backgroundColor: 'black', color: 'white', borderBottom: '1px solid #cda45e' }}>
-                    <Modal.Title>還沒登入嗎？</Modal.Title>
-                </Modal.Header>
-                <Modal.Body style={{ backgroundColor: 'black', color: 'white', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                    <Login />
-                </Modal.Body>
-            </Modal>)}
+            </Modal>) :
+                (<Modal show={show} onHide={handleCloseWindow} centered dialogClassName="custom-modal-style">
+                    <Modal.Header closeButton className="justify-content-center" style={{ backgroundColor: 'black', color: 'white', borderBottom: '1px solid #cda45e' }}>
+                        <Modal.Title>還沒登入嗎？</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body style={{ backgroundColor: 'black', color: 'white', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                        <Login />
+                    </Modal.Body>
+                </Modal>)}
 
         </>
     );
 }
 
 export default ReservationForm;
+export { useReservationForm };
