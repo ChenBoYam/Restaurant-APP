@@ -86,10 +86,14 @@ function Login() {
 
   return (
     <div>
-      <Button className="book-a-table-btn scrollto d-none d-lg-flex" onClick={ handleShow }>
-        登入
-      </Button>
-
+      <div style={{ display: 'flex', justifyContent: 'center', gap: '10px' }}>
+        <Button className="book-a-table-btn scrollto d-none d-lg-flex" onClick={handleShow}>
+          登入
+        </Button>
+        <Button className="book-a-table-btn scrollto d-none d-lg-flex" onClick={handleShow}>
+          訂位
+        </Button>
+      </div>
       <Modal show={showModal} onHide={handleClose} centered dialogClassName="custom-modal-style">
         <Modal.Header closeButton className="justify-content-center" style={{ backgroundColor: 'black', color: 'white', borderBottom: '1px solid #cda45e' }}>
           <Modal.Title>{isLogin ? '登入' : '註冊'}</Modal.Title>
@@ -111,7 +115,7 @@ function Login() {
               value={email}
               onChange={(e) => setEmail(e.target.value)} />
 
-            <InputLoginForm 
+            <InputLoginForm
               label="密碼"
               type="password"
               placeholder="Password"
