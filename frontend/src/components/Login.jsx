@@ -4,6 +4,7 @@ import axios from 'axios';
 import LoginOrRegister from './LoginOrRegister';
 import InputLoginForm from './InputForm';
 import { GoogleLogin, useGoogleLogin } from '@react-oauth/google';
+import FacebookLogin from 'react-facebook-login';
 
 var checkLogin = true;
 
@@ -95,10 +96,15 @@ function Login() {
     // An error occurred during the login process.
     console.error(error);
   };
+
   const loginGoogle = useGoogleLogin({
     onSuccess: responseGoogle,
     onError: errorGoogle
   })
+
+  const responseFacebook = (response) => {
+    console.log(response);
+  }
 
   return (
     <div>
@@ -166,9 +172,21 @@ function Login() {
 
           </Form>
           <hr style={{ borderColor: 'white' }} />
-            <button onClick={() => loginGoogle()} className='google-login-btn' >
-              <i class="bi bi-google">{" "}</i>使用 Google 帳號登入
-            </button>
+          <button onClick={() => loginGoogle()} className='google-login-btn' >
+            <i class="bi bi-google">{" "}</i>使用 Google 帳號登入
+          </button>
+
+          <FacebookLogin
+            appId="962063231721222"
+            textButton=" 使用 Facebook 帳號登入"
+            callback={responseFacebook}
+            icon="bi bi-facebook"
+            cssClass="facebook-login-btn"
+            render={renderProps => (
+              <button onClick={renderProps.onClick}>This is my custom FB button</button>
+            )}
+          />
+
         </Modal.Body>
       </Modal>
     </div>
