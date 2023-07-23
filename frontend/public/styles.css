@@ -1859,3 +1859,13 @@ section {
   border-radius: 6px;
   margin-top: 10px;
 }
+
+.line-login-btn {
+  width: 100% ;
+  background-color: #00B900; 
+  color: white;
+  border: none ;
+  padding: 10px; 
+  border-radius: 6px;
+  margin-top: 10px;
+}
