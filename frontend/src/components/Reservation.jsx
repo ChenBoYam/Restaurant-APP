@@ -21,10 +21,11 @@ function useReservationForm() {
 }
 
 function ReservationForm() {
-    const [date, setDate] = useState(null);
-    const [adults, setAdults] = useState('');
-    const [children, setChildren] = useState('');
+    const [date, setDate] = useState(new Date());
+    const [adults, setAdults] = useState(1);
+    const [children, setChildren] = useState(0);
     const [confirmation, setConfirmation] = useState(false);
+    const [time, setTime] = useState(null);
 
     const { show, handleShowWindow, handleCloseWindow } = useReservationForm();
 
@@ -33,9 +34,9 @@ function ReservationForm() {
         // Handle the reservation submission here (e.g., send data to the server)
         console.log('Reservation submitted:', { adults, children, date });
         // Reset form fields
-        setAdults('');
-        setChildren('');
-        setDate(null);
+        // setAdults(1);
+        // setChildren(0);
+        // setDate(null);
         handleCloseWindow();
         handleConfirmationShow();
     };
@@ -54,6 +55,14 @@ function ReservationForm() {
 
     const handleConfirmationShow = useCallback(() => {
         setConfirmation(true);
+    }, []);
+
+    const handleDate = useCallback((date) => {
+        setDate(date);
+    }, []);
+
+    const handleTime = useCallback((time) => {
+        setTime(time);
     }, []);
 
 
@@ -110,11 +119,11 @@ function ReservationForm() {
                                 </Form.Group>
                             </Col>
                             <Col md={4}>
-                                <CustomDatePicker />
+                                <CustomDatePicker handleDate={handleDate}/>
                             </Col>
                         </Row>
 
-                        <TimePicker />
+                        <TimePicker handleTime={handleTime}/>
 
                         <div className="d-flex justify-content-center">
                             <Button className="book-a-table-btn login-submit-button mt-4" variant="primary" type="submit">
@@ -141,6 +150,7 @@ function ReservationForm() {
                     <p>大人：{adults}位</p>
                     <p>小孩：{children}位</p>
                     <p>日期：{date ? date.toString() : 'Not selected'}</p>
+                    <p>時間：{time}</p>
                     <Button className="book-a-table-btn login-submit-button mt-4" variant="primary" onClick={handleConfirmationClose}>
                         確認
                     </Button>
