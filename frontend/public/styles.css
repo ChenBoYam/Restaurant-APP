@@ -1850,6 +1850,11 @@ section {
   border-radius: 6px;
 }
 
+.google-login-btn:hover {
+  background-color: white; 
+  color: #db4437;
+}
+
 .facebook-login-btn {
   width: 100% ;
   background-color: #4267B2; 
@@ -1860,6 +1865,11 @@ section {
   margin-top: 10px;
 }
 
+.facebook-login-btn:hover {
+  background-color: white; 
+  color: #4267B2;
+}
+
 .line-login-btn {
   width: 100% ;
   background-color: #00B900; 
@@ -1868,4 +1878,9 @@ section {
   padding: 10px; 
   border-radius: 6px;
   margin-top: 10px;
+}
+
+.line-login-btn:hover {
+  background-color: white; 
+  color: #00B900;
 }

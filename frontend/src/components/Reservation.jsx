@@ -24,6 +24,7 @@ function ReservationForm() {
     const [date, setDate] = useState(null);
     const [adults, setAdults] = useState('');
     const [children, setChildren] = useState('');
+    const [confirmation, setConfirmation] = useState(false);
 
     const { show, handleShowWindow, handleCloseWindow } = useReservationForm();
 
@@ -36,6 +37,7 @@ function ReservationForm() {
         setChildren('');
         setDate(null);
         handleCloseWindow();
+        handleConfirmationShow();
     };
 
     const handleAdultChange = (e) => {
@@ -46,9 +48,17 @@ function ReservationForm() {
         setChildren(e.target.value);
     };
 
+    const handleConfirmationClose = useCallback(() => {
+        setConfirmation(false);
+    }, []);
+
+    const handleConfirmationShow = useCallback(() => {
+        setConfirmation(true);
+    }, []);
+
 
     return (
-        <>
+        <div>
             <Button className="book-a-table-btn scrollto d-none d-lg-flex" onClick={handleShowWindow}>
                 訂位
             </Button>
@@ -104,7 +114,6 @@ function ReservationForm() {
                             </Col>
                         </Row>
 
-                        {/* <CustomDatePicker /> */}
                         <TimePicker />
 
                         <div className="d-flex justify-content-center">
@@ -124,7 +133,20 @@ function ReservationForm() {
                     </Modal.Body>
                 </Modal>)}
 
-        </>
+            <Modal show={confirmation} onHide={handleConfirmationClose} centered dialogClassName="custom-modal-style">
+                <Modal.Header closeButton className="justify-content-center" style={{ backgroundColor: 'black', color: 'white', borderBottom: '1px solid #cda45e' }}>
+                    <Modal.Title>確認訂位</Modal.Title>
+                </Modal.Header>
+                <Modal.Body style={{ backgroundColor: 'black', color: 'white' }}>
+                    <p>大人：{adults}位</p>
+                    <p>小孩：{children}位</p>
+                    <p>日期：{date ? date.toString() : 'Not selected'}</p>
+                    <Button className="book-a-table-btn login-submit-button mt-4" variant="primary" onClick={handleConfirmationClose}>
+                        確認
+                    </Button>
+                </Modal.Body>
+            </Modal>
+        </div>
     );
 }
 
