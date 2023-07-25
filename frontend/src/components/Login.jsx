@@ -108,7 +108,7 @@ function Login() {
 
   const loginLine = () => {
     let client_id = '2000206836';
-    let redirect_uri = 'http://localhost:3000';
+    let redirect_uri = 'https://3mealfood.com';
     let link = 'https://access.line.me/oauth2/v2.1/authorize?';
     link += 'response_type=code';
     link += '&client_id=' + client_id;
@@ -194,9 +194,11 @@ function Login() {
           <FacebookLogin
             appId="962063231721222"
             textButton=" 使用 Facebook 帳號登入"
+            autoLoad={false}
             callback={responseFacebook}
             icon="bi bi-facebook"
             cssClass="facebook-login-btn"
+            cookie={false}
             render={renderProps => (
               <button onClick={renderProps.onClick}>This is my custom FB button</button>
             )}
