@@ -1197,6 +1197,13 @@ section {
   background-color: #cda45e;
 }
 
+/* .events .event-item img {
+  width: 50%;
+  height: 50%;
+  background-position: center;
+  background-size: cover;
+} */
+
 /*--------------------------------------------------------------
   # Book A Table
   --------------------------------------------------------------*/
@@ -1835,6 +1842,19 @@ section {
 
 .wide-modal {
   --bs-modal-width: 680px;
+}
+
+.confirm-header {
+  border-radius: 7px;
+  border: none;
+}
+
+.confirm-header p{
+  margin: 0;
+}
+
+.confirm-modal {
+  --bs-modal-width: 800px;
 }
 
 /*--------------------------------------------------------------

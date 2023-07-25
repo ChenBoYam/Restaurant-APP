@@ -31,18 +31,18 @@ function Header() {
                 <Nav.Link href="#hero" className="nav-link scrollto mr-4" onClick={(e) => handleNavClick(e, '#hero')}>
                   首頁
                 </Nav.Link>
+                <Nav.Link href="#events" className="nav-link scrollto mr-4" onClick={(e) => handleNavClick(e, '#events')}>
+                  最新消息
+                </Nav.Link>
                 <Nav.Link href="#about" className="nav-link scrollto mr-4" onClick={(e) => handleNavClick(e, '#about')}>
-                  關於
+                  關於我們
                 </Nav.Link>
                 <Nav.Link href="#menu" className="nav-link scrollto mr-4" onClick={(e) => handleNavClick(e, '#menu')}>
                   暖食菜單
                 </Nav.Link>
-                <Nav.Link href="#specials" className="nav-link scrollto mr-4" onClick={(e) => handleNavClick(e, '#specials')}>
+                {/* <Nav.Link href="#specials" className="nav-link scrollto mr-4" onClick={(e) => handleNavClick(e, '#specials')}>
                   特選佳餚
-                </Nav.Link>
-                <Nav.Link href="#events" className="nav-link scrollto mr-4" onClick={(e) => handleNavClick(e, '#events')}>
-                  優惠活動
-                </Nav.Link>
+                </Nav.Link> */}
                 <Nav.Link href="#gallery" className="nav-link scrollto mr-4" onClick={(e) => handleNavClick(e, '#gallery')}>
                   精選照片
                 </Nav.Link>

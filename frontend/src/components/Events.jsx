@@ -1,109 +1,160 @@
-import React from "react";
+// Import Swiper
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
 
-function Events() {
+// Import images
+import birthdayImg from "../img/event-birthday.jpg";
+import customImg from "../img/event-custom.jpg";
+import privateImg from "../img/event-private.jpg";
+import faviconImg from "../img/events-bg.jpg";
+function Expo() {
   return (
     <div>
       <section id="events" class="events">
-        <div class="container" data-aos="fade-up">
-
+        {/* <div class="container" data-aos="fade-up"> */}
+        <div class="container">
           <div class="section-title">
-            <h2>優惠活動</h2>
-            <p>優惠活動</p>
+            <h2>最新消息</h2>
+            <p>最新消息</p>
           </div>
 
-          <div class="events-slider swiper" data-aos="fade-up" data-aos-delay="100">
-            <div class="swiper-wrapper">
+          {/* <div class="events-slider swiper" data-aos="fade-up" data-aos-delay="100"> */}
+          <div class="events-slider swiper">
+            <div>
+              <Swiper
+                // install Swiper modules
+                loop={false}
+                modules={[Navigation, Pagination, Scrollbar, A11y]}
+                spaceBetween={50}
+                slidesPerView={1}
+                pagination={{ clickable: true }}
+                scrollbar={{ draggable: true }}
+                onSwiper={(swiper) => console.log(swiper)}
+                onSlideChange={() => console.log('slide change')}
 
-              <div class="swiper-slide">
-                <div class="row event-item">
-                  <div class="col-lg-6">
-                    <img src="img/event-birthday.jpg" class="img-fluid" alt="" />
-                  </div>
-                  <div class="col-lg-6 pt-4 pt-lg-0 content">
-                    <h3>Birthday Parties</h3>
-                    <div class="price">
-                      <p><span>$189</span></p>
+                speed={600}
+                autoplay={{
+                  delay: 5000,
+                  disableOnInteraction: false
+                }}
+              >
+                <SwiperSlide>
+                  <div class="row event-item">
+                    <div class="col-lg-4">
+                      <img src={birthdayImg} class="img-fluid" alt="birthday" />
                     </div>
-                    <p class="fst-italic">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                      magna aliqua.
-                    </p>
-                    <ul>
-                      <li><i class="bi bi-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                      <li><i class="bi bi-check-circled"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                      <li><i class="bi bi-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                    </ul>
-                    <p>
-                      Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                      velit esse cillum dolore eu fugiat nulla pariatur
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="row event-item">
-                  <div class="col-lg-6">
-                    <img src="img/event-private.jpg" class="img-fluid" alt="" />
-                  </div>
-                  <div class="col-lg-6 pt-4 pt-lg-0 content">
-                    <h3>Private Parties</h3>
-                    <div class="price">
-                      <p><span>$290</span></p>
+                    <div class="col-lg-6 pt-4 pt-lg-0 content">
+                      <h3>Birthday Parties</h3>
+                      <div class="price">
+                        <p><span>$189</span></p>
+                      </div>
+                      <p class="fst-italic">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                        magna aliqua.
+                      </p>
+                      <ul>
+                        <li><i class="bi bi-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                        <li><i class="bi bi-check-circled"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+                        <li><i class="bi bi-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                      </ul>
+                      <p>
+                        Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+                        velit esse cillum dolore eu fugiat nulla pariatur
+                      </p>
                     </div>
-                    <p class="fst-italic">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                      magna aliqua.
-                    </p>
-                    <ul>
-                      <li><i class="bi bi-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                      <li><i class="bi bi-check-circled"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                      <li><i class="bi bi-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                    </ul>
-                    <p>
-                      Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                      velit esse cillum dolore eu fugiat nulla pariatur
-                    </p>
                   </div>
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="row event-item">
-                  <div class="col-lg-6">
-                    <img src="img/event-custom.jpg" class="img-fluid" alt="" />
-                  </div>
-                  <div class="col-lg-6 pt-4 pt-lg-0 content">
-                    <h3>Custom Parties</h3>
-                    <div class="price">
-                      <p><span>$99</span></p>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <div class="row event-item">
+                    <div class="col-lg-4">
+                      <img src={customImg} class="img-fluid" alt="asdf" />
                     </div>
-                    <p class="fst-italic">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                      magna aliqua.
-                    </p>
-                    <ul>
-                      <li><i class="bi bi-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                      <li><i class="bi bi-check-circled"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                      <li><i class="bi bi-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                    </ul>
-                    <p>
-                      Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                      velit esse cillum dolore eu fugiat nulla pariatur
-                    </p>
+                    <div class="col-lg-6 pt-4 pt-lg-0 content">
+                      <h3>Airthday Parties</h3>
+                      <div class="price">
+                        <p><span>$189</span></p>
+                      </div>
+                      <p class="fst-italic">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                        magna aliqua.
+                      </p>
+                      <ul>
+                        <li><i class="bi bi-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                        <li><i class="bi bi-check-circled"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+                        <li><i class="bi bi-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                      </ul>
+                      <p>
+                        Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+                        velit esse cillum dolore eu fugiat nulla pariatur
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </div>
-
+                </SwiperSlide>
+                <SwiperSlide>
+                  <div class="row event-item">
+                    <div class="col-lg-4">
+                      <img src={privateImg} class="img-fluid" alt="dfsa" />
+                    </div>
+                    <div class="col-lg-6 pt-4 pt-lg-0 content">
+                      <h3>Cirthday Parties</h3>
+                      <div class="price">
+                        <p><span>$189</span></p>
+                      </div>
+                      <p class="fst-italic">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                        magna aliqua.
+                      </p>
+                      <ul>
+                        <li><i class="bi bi-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                        <li><i class="bi bi-check-circled"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+                        <li><i class="bi bi-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                      </ul>
+                      <p>
+                        Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+                        velit esse cillum dolore eu fugiat nulla pariatur
+                      </p>
+                    </div>
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <div class="row event-item">
+                    <div class="col-lg-4">
+                      <img src={faviconImg} class="img-fluid" alt="qwer" />
+                    </div>
+                    <div class="col-lg-6 pt-4 pt-lg-0 content">
+                      <h3>Dirthday PartieFs</h3>
+                      <div class="price">
+                        <p><span>$189</span></p>
+                      </div>
+                      <p class="fst-italic">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                        magna aliqua.
+                      </p>
+                      <ul>
+                        <li><i class="bi bi-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                        <li><i class="bi bi-check-circled"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+                        <li><i class="bi bi-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                      </ul>
+                      <p>
+                        Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+                        velit esse cillum dolore eu fugiat nulla pariatur
+                      </p>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              </Swiper>
             </div>
-            <div class="swiper-pagination"></div>
           </div>
-
         </div>
       </section>
     </div>
   );
 };
 
-export default Events;
+export default Expo;

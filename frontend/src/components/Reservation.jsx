@@ -127,7 +127,7 @@ function ReservationForm() {
 
                         <div className="d-flex justify-content-center">
                             <Button className="book-a-table-btn login-submit-button mt-4" variant="primary" type="submit">
-                                確認訂位
+                                訂位
                             </Button>
                         </div>
                     </Form>
@@ -142,19 +142,10 @@ function ReservationForm() {
                     </Modal.Body>
                 </Modal>)}
 
-            <Modal show={confirmation} onHide={handleConfirmationClose} centered dialogClassName="custom-modal-style">
-                <Modal.Header closeButton className="justify-content-center" style={{ backgroundColor: 'black', color: 'white', borderBottom: '1px solid #cda45e' }}>
-                    <Modal.Title>確認訂位</Modal.Title>
+            <Modal show={confirmation} onHide={handleConfirmationClose} centered dialogClassName="custom-modal-style" className="confirm-modal">
+                <Modal.Header closeButton className="justify-content-center confirm-header" style={{ backgroundColor: 'black', color: 'white'}}>
+                    <Modal.Title> <p>您已選擇預定 三餐暖食： {adults}大 {children}小 {date.getFullYear() + "年" + date.getMonth() + "月" + date.getDate() + "日"} {time}</p></Modal.Title>
                 </Modal.Header>
-                <Modal.Body style={{ backgroundColor: 'black', color: 'white' }}>
-                    <p>大人：{adults}位</p>
-                    <p>小孩：{children}位</p>
-                    <p>日期：{date ? date.toString() : 'Not selected'}</p>
-                    <p>時間：{time}</p>
-                    <Button className="book-a-table-btn login-submit-button mt-4" variant="primary" onClick={handleConfirmationClose}>
-                        確認
-                    </Button>
-                </Modal.Body>
             </Modal>
         </div>
     );
