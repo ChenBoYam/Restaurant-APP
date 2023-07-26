@@ -64,7 +64,7 @@ function Login() {
         }
       } else {
         // Handle signup logic
-        const postRoute = `${process.env.SERVER_ADDRESS}/users`
+        const postRoute = `${process.env.REACT_APP_SERVER_ADRESS}/users`
         const response = await axios.post(postRoute, {
           username,
           email,
