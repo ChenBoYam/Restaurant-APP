@@ -25,17 +25,17 @@ const About = () => {
               </div>
             </Col>
             <Col lg={{ span: 6, order: 1 }} className="pt-4 pt-lg-0 content" data-aos="fade-up" data-aos-delay="200">
-              <h3>標題</h3>
+              <h3>三餐暖食</h3>
               <p className="fst-italic">
-                小標題
+                暖口、暖胃、暖心
               </p>
               <ul>
-                <li><i className="bi bi-check-circle"></i> 列點一</li>
-                <li><i className="bi bi-check-circle"></i> 列點二</li>
-                <li><i className="bi bi-check-circle"></i> 列點三</li>
+                <li><i className="bi bi-check-circle"></i> 舒適的環境</li>
+                <li><i className="bi bi-check-circle"></i> 美味的餐點</li>
+                <li><i className="bi bi-check-circle"></i> 溫暖的人心</li>
               </ul>
               <p>
-                介紹
+                我們一同許下諾言，帶領所有大朋友、小朋友，品嚐台灣人心中魂牽夢縈的滋味，再度重溫家的味道那份感動。
               </p>
             </Col>
           </Row>

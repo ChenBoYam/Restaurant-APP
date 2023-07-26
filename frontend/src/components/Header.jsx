@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Navbar, Nav } from 'react-bootstrap';
 import Login from './Login';
 import ReservationForm from "./Reservation";
+import logoImg from "../img/3mealfood_logo.png" 
 
 function Header() {
   const handleNavClick = (e, target) => {
@@ -21,7 +22,8 @@ function Header() {
       <header id="header" className="fixed-top d-flex align-items-center">
         <Container fluid="xl" className="d-flex align-items-center justify-content-lg-between">
           <h1 className="logo me-auto me-lg-0">
-            <a href="index.html">三餐暖食</a>
+            <img src={logoImg} alt="logo"/>
+            {/* <a href="index.html"> 三餐暖食</a> */}
           </h1>
 
           <Navbar expand="lg" id="navbar" className="order-last order-lg-0 mb-3 mb-lg-0">
