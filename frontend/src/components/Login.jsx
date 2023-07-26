@@ -5,6 +5,8 @@ import LoginOrRegister from './LoginOrRegister';
 import InputLoginForm from './InputForm';
 import { useGoogleLogin } from '@react-oauth/google';
 import FacebookLogin from 'react-facebook-login';
+// require('dotenv').config();
+
 
 var checkLogin = true;
 
@@ -84,9 +86,8 @@ function Login() {
       setError(`An unexpected error occurred. Error: ${error}`);
     }
   };
+
   checkLogin = isLogin;
-
-
   const responseGoogle = (response) => {
     // The user successfully logged in with Google.
     console.log(response);
@@ -107,7 +108,7 @@ function Login() {
   }
 
   const loginLine = () => {
-    let client_id = '2000206836';
+    let client_id = process.env.LINE_LOGIN_ID;
     let redirect_uri = 'https://3mealfood.com';
     let link = 'https://access.line.me/oauth2/v2.1/authorize?';
     link += 'response_type=code';
@@ -192,7 +193,7 @@ function Login() {
 
           {/* facebook login */}
           <FacebookLogin
-            appId="962063231721222"
+            appID={process.env.FB_LOGIN_ID}
             textButton=" 使用 Facebook 帳號登入"
             autoLoad={false}
             callback={responseFacebook}
