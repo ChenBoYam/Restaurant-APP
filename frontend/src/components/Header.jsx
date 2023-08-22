@@ -22,8 +22,8 @@ function Header() {
       <header id="header" className="fixed-top d-flex align-items-center">
         <Container fluid="xl" className="d-flex align-items-center justify-content-lg-between">
           <h1 className="logo me-auto me-lg-0">
-            <img src={logoImg} alt="logo"/>
-            {/* <a href="index.html"> 三餐暖食</a> */}
+            {/* <img src={logoImg} alt="logo"/> */}
+            <a href="index.html"> <img src={logoImg} alt="logo"/></a>
           </h1>
 
           <Navbar expand="lg" id="navbar" className="order-last order-lg-0 mb-3 mb-lg-0">
