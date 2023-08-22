@@ -66,7 +66,7 @@ function Login() {
         }
       } else {
         // Handle signup logic
-        const postRoute = `${process.env.REACT_APP_SERVER_ADRESS}/users`
+        const postRoute = `${process.env.REACT_APP_SERVER_ADDRESS}/users`
         const response = await axios.post(postRoute, {
           username,
           email,
@@ -76,14 +76,14 @@ function Login() {
         if (response.status === 201) {
           console.log('Signup successful');
           handleClose();
-
         } else {
-          setErrorMessages(response.data)
+          console.log('Something went wrong!');
+          handleClose();
         }
       }
     } catch (error) {
-
-      setError(`An unexpected error occurred. Error: ${error}`);
+        console.log(error.response);
+        setErrorMessages(error.response.data)
     }
   };
 
