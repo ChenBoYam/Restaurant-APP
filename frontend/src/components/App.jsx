@@ -13,19 +13,21 @@ import Contact from "./Contact";
 function App() {
     return (
         <div>
-            {/* <TopBar /> */}
-            <Header />
-            <Hero />
-            <main id="main">
-                <Events />
-                <About />
-                <Menu />
-                {/* <Specials /> */}
-                <Gallery />
-                <Contact />
+                {/* <TopBar /> */}
 
-            </main>
-            {/* <Footer /> */}
+                <Header />
+                <Hero />
+                <main id="main">
+
+                    <Events />
+                    <About />
+                    <Menu />
+                    {/* <Specials /> */}
+                    <Gallery />
+                    <Contact />
+
+                </main>
+                {/* <Footer /> */}
         </div>
     );
 };

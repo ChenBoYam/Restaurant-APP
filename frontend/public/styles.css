@@ -1904,3 +1904,23 @@ section {
   background-color: white; 
   color: #00B900;
 }
+
+
+
+/*--------------------------------------------------------------
+  # Admin page
+  --------------------------------------------------------------*/
+.home-container {
+  text-align: center;
+}
+
+.home-title {
+  margin-top: 20px;
+}
+
+.links-container {
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
