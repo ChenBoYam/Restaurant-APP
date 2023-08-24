@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from "react-router-dom";
 import axios from 'axios';
 
 
@@ -65,9 +64,6 @@ const Gallery = () => {
                     </div>
                 ))}
             </div>
-
-            <br />
-            <Link to={"/"}>home</Link>
         </div>
 
     );
