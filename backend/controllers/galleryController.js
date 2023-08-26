@@ -9,7 +9,6 @@ const path = require('path');
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         const dir = './uploads/';
-
         // Check if directory exists, if not, create it
         if (!fs.existsSync(dir)) {
             fs.mkdirSync(dir, { recursive: true });
@@ -21,28 +20,34 @@ const storage = multer.diskStorage({
         cb(null, Date.now() + '-' + file.originalname);
     }
 });
-
-
 const upload = multer({ storage: storage });
 
 // @desc Get all the images
 // @route GET /gallery
 // @access private (based on your user routes)
 const getAllImages = async (req, res) => {
-    const images = await Gallery.find().lean();
-    if (!images?.length) {
-        return res.status(400).json({ message: "No images found" });
+    try {
+        const images = await Gallery.find().lean();
+        if (!images?.length) {
+            return res.status(200).json([]);  // Return an empty array with 200 OK status
+        }
+        res.json(images);
+    } catch (error) {
+        console.error("Error fetching images:", error);
+        return res.status(500).json({ message: "Server Error" });
     }
-    res.json(images);
 }
+
 
 // @desc Create a new image entry
 // @route POST /gallery
 // @access private
 const createImage = async (req, res) => {
     try {
+        console.log("gallery controller");
         // Multer adds a file object to the request. You can extract path and filename from there.
-        const { path, filename } = req.file;
+        const { path } = req.file;
+        const filename = req.body.filename;
 
         // Create a new image entry with filename and path
         const newImage = new Gallery({
@@ -58,7 +63,7 @@ const createImage = async (req, res) => {
 
     } catch (error) {
         return res.status(500).json({
-            message: "Server Error",
+            message: "Error while creating the image:",
             error
         });
     }
@@ -108,6 +113,9 @@ const deleteImage = async (req, res) => {
                 message: "Image entry not found!"
             });
         }
+
+        // Delete the actual image file from the server
+        fs.unlinkSync(path.join("./", image.path)); // Modify the path as per your directory structure
 
         await image.deleteOne();
 

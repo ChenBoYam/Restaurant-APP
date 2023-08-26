@@ -1731,3 +1731,9 @@ section {
   font-size: 13px;
   color: #fff;
 }
+
+.uniform-image {
+  width: 100%;
+  height: 200px;  /* or any fixed height you desire */
+  object-fit: cover;
+}

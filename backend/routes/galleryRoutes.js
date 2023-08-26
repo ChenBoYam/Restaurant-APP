@@ -1,10 +1,11 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const galleryController = require('../controllers/galleryController');
+const galleryController = require("../controllers/galleryController");
 
-router.get('/gallery', galleryController.getAllImages);
-router.post('/gallery', galleryController.upload.single('image'), galleryController.createImage);
-router.patch('/gallery/:id', galleryController.updateImage);
-router.delete('/gallery/:id', galleryController.deleteImage);
+router.get("/", galleryController.getAllImages);
+router.post('/', galleryController.upload.single('image'), galleryController.createImage);
+
+router.patch("/:id", galleryController.updateImage);
+router.delete("/:id", galleryController.deleteImage);
 
 module.exports = router;

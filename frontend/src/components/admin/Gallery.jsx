@@ -1,24 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Row, Col, Button } from 'react-bootstrap';
 
 
 const Gallery = () => {
     const [file, setFile] = useState(null);
     const [fileName, setFileName] = useState(""); // State to hold the file name
     const [images, setImages] = useState([]);
+    const uploadPath = "http://localhost:3500/"
 
 
     useEffect(() => {
         const fetchImages = async () => {
             try {
-                const response = await axios.get(`${process.env.REACT_APP_SERVER_ADDRESS}/gallery`);
+                // const response = await axios.get(`${process.env.REACT_APP_SERVER_ADDRESS}/gallery`);
+                const response = await axios.get('http://localhost:3500/admin/gallery');
                 setImages(response.data);
             } catch (error) {
                 console.error("Error fetching images:", error);
             }
         };
-
         fetchImages();
+
     }, []); // <-- The empty dependency array ensures this effect runs only once when the component mounts.
 
     const uploadImage = async () => {
@@ -29,8 +32,10 @@ const Gallery = () => {
             formData.append('image', file);
             formData.append('filename', fileName);  // Add the filename to formData
 
-            const postRoute = `${process.env.REACT_APP_SERVER_ADDRESS}/gallery`;
+            // const postRoute = `${process.env.REACT_APP_SERVER_ADDRESS}/gallery`;
+            const postRoute = `http://localhost:3500/admin/gallery`;
             const response = await axios.post(postRoute, formData);
+
 
             if (response.status >= 200 && response.status < 300) {
                 console.log("Image uploaded successfully!");
@@ -39,6 +44,22 @@ const Gallery = () => {
             }
         } catch (error) {
             console.error("There was an error uploading the image", error);
+        }
+    };
+
+    const deleteImage = async (imageId) => {
+        try {
+            const response = await axios.delete(`http://localhost:3500/admin/gallery/${imageId}`);
+
+            if (response.status === 200) {
+                console.log("Image deleted successfully!");
+                // Update the UI by removing the deleted image
+                setImages(images => images.filter(image => image._id !== imageId));
+            } else {
+                console.error("Error deleting image:", await response.text());
+            }
+        } catch (error) {
+            console.error("There was an error deleting the image", error);
         }
     };
 
@@ -51,19 +72,29 @@ const Gallery = () => {
                 accept="image/*"
                 onChange={(e) => {
                     setFile(e.target.files[0]);
-                    setFileName(e.target.files[0].name);  // Set the filename when a file is selected
+                    // setFileName(e.target.files[0].name);  // Set the filename when a file is selected
                 }}
             />
-            <button onClick={uploadImage}>Upload</button>
+            <label>Set Filename: </label>
+            <input
+                type="text"
+                placeholder="Enter filename"
+                value={fileName}
+                onChange={(e) => setFileName(e.target.value)}
+            />
+            <Button onClick={uploadImage}>Upload</Button>
 
-            <div className='image-grid'>
+            <Row className="mt-4">
                 {images.map(image => (
-                    <div key={image._id} className='image-container'>
-                        <img src={image.path} alt={image.filename} />
-                        <p>{image.filename}</p>
-                    </div>
+                    <Col xs={12} md={4} className="mb-4" key={image._id}>
+                        <div className='image-container'>
+                            <img className="uniform-image" src={uploadPath + image.path} alt={image.filename} style={{ width: "100%" }} />
+                            <p>{image.filename}</p>
+                            <Button variant="danger" className="mt-2" onClick={() => deleteImage(image._id)}>Delete</Button>
+                        </div>
+                    </Col>
                 ))}
-            </div>
+            </Row>
         </div>
 
     );

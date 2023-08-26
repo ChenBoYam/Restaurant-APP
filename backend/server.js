@@ -29,7 +29,8 @@ app.use( '/', express.static( path.join( __dirname, 'public' ) ) )
 
 app.use( '/', require( './routes/root' ) )
 app.use( '/users', require( './routes/userRoutes' ) )
-app.use( '/gallery', require( './routes/galleryRoutes' ) )
+app.use( '/admin/gallery', require( './routes/galleryRoutes' ) )
+app.use('/uploads', express.static('uploads'));
 
 
 app.all( '*', ( req, res ) =>
