@@ -6,6 +6,8 @@ import Menu from "./Menu";
 import Gallery from "./Gallery";
 import Events from "./Events";
 import Contact from "./Contact";
+import { Button } from 'react-bootstrap';
+
 
 
 function Admin() {
@@ -19,8 +21,10 @@ function Admin() {
                 <Route element={<Events />} path='/events'></Route>
                 <Route element={<Contact />} path='/contact'></Route>
             </Routes>
-            <div className='home-container'>
-                <Link to={"/admin"}>home</Link>
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <Button className="mt-4">
+                    <Link to="/admin" style={{ color: 'white', textDecoration: 'none' }}>home</Link>
+                </Button>
             </div>
         </div>
     );

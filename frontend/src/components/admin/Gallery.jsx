@@ -39,6 +39,7 @@ const Gallery = () => {
 
             if (response.status >= 200 && response.status < 300) {
                 console.log("Image uploaded successfully!");
+                window.location.reload();
             } else {
                 console.error("Error uploading image:", await response.text());
             }
@@ -82,7 +83,7 @@ const Gallery = () => {
                 value={fileName}
                 onChange={(e) => setFileName(e.target.value)}
             />
-            <Button onClick={uploadImage}>Upload</Button>
+            <Button onClick={() => uploadImage()}>Upload</Button>
 
             <Row className="mt-4">
                 {images.map(image => (
