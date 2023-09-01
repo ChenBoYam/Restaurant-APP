@@ -19,8 +19,8 @@ function Events() {
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        // const response = await axios.get(`${process.env.REACT_APP_SERVER_ADDRESS}/event`);
-        const response = await axios.get('http://localhost:3500/admin/event');
+        const response = await axios.get(`${process.env.REACT_APP_SERVER_ADDRESS}/admin/event`);
+        // const response = await axios.get('http://localhost:3500/admin/event');
         setImages(response.data);
       } catch (error) {
         console.error("Error fetching images:", error);

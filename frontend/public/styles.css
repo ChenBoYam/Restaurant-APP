@@ -779,7 +779,7 @@ section {
   # About
   --------------------------------------------------------------*/
 .about {
-  background: url("../img/about-bg.jpg") center center;
+  /* background: url("../img/about-bg.jpg") center center; */
   background-size: cover;
   position: relative;
   padding: 80px 0;
@@ -1107,7 +1107,7 @@ section {
   # Events
   --------------------------------------------------------------*/
 .events {
-  background: url(../img/events-bg.jpg) center center no-repeat;
+  /* background: url(../img/events-bg.jpg) center center no-repeat; */
   background-size: cover;
   position: relative;
 }
