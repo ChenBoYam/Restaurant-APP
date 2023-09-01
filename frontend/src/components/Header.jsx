@@ -22,7 +22,6 @@ function Header() {
       <header id="header" className="fixed-top d-flex align-items-center">
         <Container fluid="xl" className="d-flex align-items-center justify-content-lg-between">
           <h1 className="logo me-auto me-lg-0">
-            {/* <img src={logoImg} alt="logo"/> */}
             <a href="index.html"> <img src={logoImg} alt="logo"/></a>
           </h1>
 
@@ -42,9 +41,6 @@ function Header() {
                 <Nav.Link href="#menu" className="nav-link scrollto mr-4" onClick={(e) => handleNavClick(e, '#menu')}>
                   暖食菜單
                 </Nav.Link>
-                {/* <Nav.Link href="#specials" className="nav-link scrollto mr-4" onClick={(e) => handleNavClick(e, '#specials')}>
-                  特選佳餚
-                </Nav.Link> */}
                 <Nav.Link href="#gallery" className="nav-link scrollto mr-4" onClick={(e) => handleNavClick(e, '#gallery')}>
                   精選照片
                 </Nav.Link>

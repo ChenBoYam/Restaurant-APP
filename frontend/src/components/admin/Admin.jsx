@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import Home from "./Home";
 import About from "./About";
@@ -12,17 +12,22 @@ import { Button } from 'react-bootstrap';
 
 
 function Admin() {
-    const [authenticated, setAuthenticated] = useState(false);
+    const [authenticated, setAuthenticated] = useState(localStorage.getItem('authenticated') === 'true');
 
-    // Function to handle successful login
     const handleLogin = () => {
         setAuthenticated(true);
+        localStorage.setItem('authenticated', 'true');
     };
 
-    // Function to handle logout
     const handleLogout = () => {
         setAuthenticated(false);
+        localStorage.removeItem('authenticated');
     };
+
+    useEffect(() => {
+        setAuthenticated(localStorage.getItem('authenticated') === 'true');
+    }, []);
+
 
     return (
         <div>

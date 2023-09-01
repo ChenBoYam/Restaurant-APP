@@ -27,6 +27,7 @@ const About = () => {
       }
     };
     fetchAboutInfo();
+    
   }, []);
 
   return (
@@ -47,10 +48,10 @@ const About = () => {
                 </h3>
                 <ul>
                   {info.bulletPoints.map((point) => (
-                    <li style={{fontSize: "18px"}}><i className="bi bi-check-circle"></i>{point}</li>
+                    <li style={{ fontSize: "18px" }}><i className="bi bi-check-circle"></i>{point}</li>
                   ))}
                 </ul>
-                <p style={{fontSize: "20px"}}>
+                <p style={{ fontSize: "20px" }}>
                   {info.intro}
                 </p>
               </Col>

@@ -2,13 +2,17 @@ import React from 'react';
 import { Container, Row } from 'react-bootstrap';
 import Dish from './Dish';
 
-const DishList = ({ dishes }) => {
+const DishList = ({ activeFilter, data }) => {
+  const filteredDishes = data.filter(dish => dish.category === activeFilter);
+
   return (
     <Container className="share_Container dinshi container">
       <div className="h3_border">
-        <h3 id="takeout" className="section_divider">外帶 • 外送</h3>
+        <h3 id="takeout" className="section_divider">{activeFilter}</h3>
         <Row>
-          {dishes.map((dish, index) => <Dish key={index} dish={dish} />)}
+          {filteredDishes.map((dish) => (
+            <Dish dish={dish} />
+          ))}
         </Row>
       </div>
     </Container>

@@ -33,6 +33,8 @@ app.use( '/admin/gallery', require( './routes/galleryRoutes' ) )
 app.use( '/admin/event', require( './routes/eventRoutes' ) )
 app.use( '/admin/contact', require( './routes/contactRoutes' ) )
 app.use( '/admin/about', require( './routes/aboutRoutes' ) )
+app.use( '/admin/menu', require( './routes/menuRoutes' ) )
+
 app.use( '/uploads', express.static('uploads' ) );
 
 
