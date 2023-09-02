@@ -54,7 +54,7 @@ function Login() {
     try {
       if (isLogin) {
         // Handle login logic
-        const response = await axios.post('http://localhost:3500/login', {
+        const response = await axios.post(`${process.env.REACT_APP_SERVER_ADDRESS}/login`, {
           email,
           password,
         });

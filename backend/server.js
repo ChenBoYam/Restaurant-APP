@@ -10,7 +10,7 @@ const cors = require( 'cors' )
 const corsOptions = require( './config/corsOptions' )
 const connectDB = require( './config/dbConn' )
 const mongoose = require( 'mongoose' )
-const PORT = process.env.PORT || 3500
+const PORT = process.env.PORT || 3000
 
 console.log(process.env.NODE_MODE)
 
@@ -29,6 +29,7 @@ app.use( '/', express.static( path.join( __dirname, 'public' ) ) )
 
 app.use( '/', require( './routes/root' ) )
 app.use( '/users', require( './routes/userRoutes' ) )
+
 app.use( '/admin/gallery', require( './routes/galleryRoutes' ) )
 app.use( '/admin/event', require( './routes/eventRoutes' ) )
 app.use( '/admin/contact', require( './routes/contactRoutes' ) )

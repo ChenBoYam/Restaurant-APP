@@ -21,7 +21,7 @@ function Menu() {
 
     const fetchMenuInfo = async () => {
       try {
-        const response = await axios.get('http://localhost:3500/admin/menu');
+        const response = await axios.get(`${process.env.REACT_APP_SERVER_ADDRESS}/admin/menu`);
         setData(response.data);
       } catch (error) {
         console.error('Error fetching data:', error);

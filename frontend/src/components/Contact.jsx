@@ -24,7 +24,7 @@ const Contact = () => {
         // Fetch data from the database
         const fetchData = async () => {
             try {
-                const response = await axios.get("http://localhost:3500/admin/contact");
+                const response = await axios.get(`${process.env.REACT_APP_SERVER_ADDRESS}/admin/contact`);
                 const data = {
                     address: response.data[0].address,
                     time: response.data[0].time,

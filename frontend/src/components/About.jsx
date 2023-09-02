@@ -20,7 +20,7 @@ const About = () => {
 
     const fetchAboutInfo = async () => {
       try {
-        const response = await axios.get('http://localhost:3500/admin/about');
+        const response = await axios.get(`${process.env.REACT_APP_SERVER_ADDRESS}/admin/about`);
         setData(response.data);
       } catch (error) {
         console.error('Error fetching data:', error);

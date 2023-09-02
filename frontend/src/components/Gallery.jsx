@@ -17,7 +17,7 @@ function Gallery() {
         const fetchImages = async () => {
             try {
                 // const response = await axios.get(`${process.env.REACT_APP_SERVER_ADDRESS}/gallery`);
-                const response = await axios.get('http://localhost:3500/admin/gallery');
+                const response = await axios.get(`${process.env.REACT_APP_SERVER_ADDRESS}/admin/gallery`);
                 setImages(response.data);
             } catch (error) {
                 console.error("Error fetching images:", error);
