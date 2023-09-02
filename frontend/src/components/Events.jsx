@@ -66,7 +66,7 @@ function Events() {
                         <Col lg={1}></Col>
                         <Col lg={10}>
                           {/* Display image from the database */}
-                          <img src={process.env.REACT_APP_SERVER_ADDRESS + image.path} class="img-fluid" alt={image.eventName || "Image from database"} />
+                          <img src={process.env.REACT_APP_SERVER_ADDRESS + "/" + image.path} class="img-fluid" alt={image.eventName || "Image from database"} />
                         </Col>
                         <Col lg={1}></Col>
                       </Row>

@@ -9,7 +9,7 @@ const Dish = ({ dish }) => {
       <div className="dish">
         <div className="dish_image" style={{ textAlign: 'center' }}>
           <Image
-            src={uploadPath+dish.imgPath}
+            src={process.env.REACT_APP_SERVER_ADDRESS + "/" + dish.imgPath}
             alt={`${dish.title}${dish.price}`}
             style={{ width: '80%', margin: '0 auto' }}
             className='mt-4'

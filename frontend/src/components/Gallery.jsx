@@ -41,7 +41,7 @@ function Gallery() {
                             <Col lg={3} md={4} key={image._id}>
                                 <div className="gallery-item">
                                     <a href={image.path} className="gallery-lightbox" data-gall="gallery-item">
-                                        <img src={uploadPath + image.path} alt="" className="img-fluid" />
+                                        <img src={process.env.REACT_APP_SERVER_ADDRESS + "/" + image.path} alt="" className="img-fluid" />
                                     </a>
                                 </div>
                             </Col>

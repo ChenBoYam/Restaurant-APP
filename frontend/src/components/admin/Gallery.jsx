@@ -14,7 +14,7 @@ const Gallery = () => {
         const fetchImages = async () => {
             try {
                 // const response = await axios.get(`${process.env.REACT_APP_SERVER_ADDRESS}/gallery`);
-                const response = await axios.get('http://localhost:3500/admin/gallery');
+                const response = await axios.get(`${process.env.REACT_APP_SERVER_ADDRESS}/admin/gallery`);
                 setImages(response.data);
             } catch (error) {
                 console.error("Error fetching images:", error);
@@ -33,7 +33,7 @@ const Gallery = () => {
             formData.append('filename', fileName);  // Add the filename to formData
 
             // const postRoute = `${process.env.REACT_APP_SERVER_ADDRESS}/gallery`;
-            const postRoute = `http://localhost:3500/admin/gallery`;
+            const postRoute = `${process.env.REACT_APP_SERVER_ADDRESS}/admin/gallery`;
             const response = await axios.post(postRoute, formData);
 
 
@@ -50,7 +50,7 @@ const Gallery = () => {
 
     const deleteImage = async (imageId) => {
         try {
-            const response = await axios.delete(`http://localhost:3500/admin/gallery/${imageId}`);
+            const response = await axios.delete(`${process.env.REACT_APP_SERVER_ADDRESS}/admin/gallery/${imageId}`);
 
             if (response.status === 200) {
                 console.log("Image deleted successfully!");
@@ -89,7 +89,7 @@ const Gallery = () => {
                 {images.map(image => (
                     <Col xs={12} md={4} className="mb-4" key={image._id}>
                         <div className='image-container'>
-                            <img className="uniform-image" src={uploadPath + image.path} alt={image.filename} style={{ width: "100%" }} />
+                            <img className="uniform-image" src={process.env.REACT_APP_SERVER_ADDRESS + "/" + image.imgPath} alt={image.filename} style={{ width: "100%" }} />
                             <p>{image.filename}</p>
                             <Button variant="danger" className="mt-2" onClick={() => deleteImage(image._id)}>Delete</Button>
                         </div>

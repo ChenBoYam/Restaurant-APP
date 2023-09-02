@@ -74,7 +74,7 @@ const About = () => {
     formData.append('data', JSON.stringify(editingEntry));
 
     try {
-      const response = await axios.patch(`http://localhost:3500/admin/about/${editingEntry._id}`, formData, {
+      const response = await axios.patch(`${process.env.REACT_APP_SERVER_ADDRESS}/admin/about/${editingEntry._id}`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -175,7 +175,7 @@ const About = () => {
               </div>
               <div className="info-footer">
                 <h6>Image:</h6>
-                <img src={uploadPath + info.imgPath} alt={info.imgName} className="info-img" style={{ width: "100%" }} />
+                <img src={process.env.REACT_APP_SERVER_ADDRESS + "/" + info.imgPath} alt={info.imgName} className="info-img" style={{ width: "100%" }} />
               </div>
               <Button className="info-update-button mt-2" onClick={() => setEditingEntry(info)}>
                 Update

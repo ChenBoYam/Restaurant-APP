@@ -26,7 +26,7 @@ const Menu = () => {
   useEffect(() => {
     const fetchAboutInfo = async () => {
       try {
-        const response = await axios.get('http://localhost:3500/admin/menu');
+        const response = await axios.get(`${process.env.REACT_APP_SERVER_ADDRESS}/admin/menu`);
         setAboutInfo(response.data);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -55,7 +55,7 @@ const Menu = () => {
     formData.append('data', JSON.stringify(data));
 
     try {
-      const response = await axios.post('http://localhost:3500/admin/menu', formData, {
+      const response = await axios.post(`${process.env.REACT_APP_SERVER_ADDRESS}/admin/menu`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -74,7 +74,7 @@ const Menu = () => {
 
   const handleDelete = async (id, imgPath) => {
     try {
-      const response = await axios.delete(`http://localhost:3500/admin/menu/${id}`);
+      const response = await axios.delete(`${process.env.REACT_APP_SERVER_ADDRESS}/admin/menu/${id}`);
       if (response.status === 200) {
         console.log('Data deleted successfully!');
         // Remove the deleted entry from the state
@@ -161,7 +161,7 @@ const Menu = () => {
                 </div>
                 <div className="info-footer">
                   <h5>Image:</h5>
-                  <img src={uploadPath + info.imgPath} alt={info.imgName} className="info-img" style={{ width: "100%" }} />
+                  <img src={process.env.REACT_APP_SERVER_ADDRESS + "/" + info.imgPath} alt={info.imgName} className="info-img" style={{ width: "100%" }} />
                 </div>
                 <Button className="info-delete-button mt-2" onClick={() => handleDelete(info._id, info.imgPath)}>
                   Delete

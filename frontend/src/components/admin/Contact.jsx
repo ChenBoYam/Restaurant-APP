@@ -28,7 +28,7 @@ const Contact = () => {
 
   const fetchContact = async () => {
     try {
-      const response = await axios.get('http://localhost:3500/admin/contact');
+      const response = await axios.get(`${process.env.REACT_APP_SERVER_ADDRESS}/admin/contact`);
       setContact(response.data[0]);
       setLoading(false);
     } catch (error) {
@@ -48,7 +48,7 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:3500/admin/contact', formData);
+      await axios.post(`${process.env.REACT_APP_SERVER_ADDRESS}/admin/contact`, formData);
       setFormData({
         address: "",
         email: "",

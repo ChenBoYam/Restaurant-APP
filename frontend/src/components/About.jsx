@@ -38,7 +38,7 @@ const About = () => {
             <Row>
               <Col lg={{ span: 6, order: 2 }} data-aos="zoom-in" data-aos-delay="100">
                 <div className="about-img">
-                  <img src={uploadPath + info.imgPath} alt={info.imgName} />
+                  <img src={process.env.REACT_APP_SERVER_ADDRESS + "/" + info.imgPath} alt={info.imgName} />
                 </div>
               </Col>
               <Col lg={{ span: 6, order: 1 }} className="pt-4 pt-lg-0 content" data-aos="fade-up" data-aos-delay="200">
