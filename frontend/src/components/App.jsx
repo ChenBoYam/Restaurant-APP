@@ -6,6 +6,7 @@ import Menu from "./Menu";
 import Events from "./Events";
 import Gallery from "./Gallery";
 import Contact from "./Contact";
+import Footer from "./Footer";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
                         <Gallery />
                         <Contact />
                     </main>
+                    <Footer />
                 </React.StrictMode>
             </GoogleOAuthProvider>
         </div>

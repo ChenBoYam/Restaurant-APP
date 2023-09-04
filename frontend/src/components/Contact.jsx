@@ -119,7 +119,7 @@ const Contact = () => {
                                     <div className="sent-message">Your message has been sent. Thank you!</div>
                                 </div>
                                 <div className="text-center">
-                                    <Button type="submit">發送訊息</Button>
+                                    <Button type="submit">尚未啟用 敬請期待</Button>
                                 </div>
                             </Form>
                         </Col>

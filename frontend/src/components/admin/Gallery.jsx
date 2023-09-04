@@ -66,7 +66,7 @@ const Gallery = () => {
 
     return (
         <div className='home-container'>
-            <h1 className='home-title'>Gallery</h1>
+            <h1 className='home-title'>精選照片</h1>
 
             <input
                 type="file"
@@ -76,14 +76,14 @@ const Gallery = () => {
                     // setFileName(e.target.files[0].name);  // Set the filename when a file is selected
                 }}
             />
-            <label>Set Filename: </label>
+            <label>照片名稱: </label>
             <input
                 type="text"
                 placeholder="Enter filename"
                 value={fileName}
                 onChange={(e) => setFileName(e.target.value)}
             />
-            <Button onClick={() => uploadImage()}>Upload</Button>
+            <Button onClick={() => uploadImage()}>上傳</Button>
 
             <Row className="mt-4">
                 {images.map(image => (
@@ -91,7 +91,7 @@ const Gallery = () => {
                         <div className='image-container'>
                             <img className="uniform-image" src={process.env.REACT_APP_SERVER_ADDRESS + "/" + image.imgPath} alt={image.filename} style={{ width: "100%" }} />
                             <p>{image.filename}</p>
-                            <Button variant="danger" className="mt-2" onClick={() => deleteImage(image._id)}>Delete</Button>
+                            <Button variant="danger" className="mt-2" onClick={() => deleteImage(image._id)}>刪除</Button>
                         </div>
                     </Col>
                 ))}

@@ -43,10 +43,10 @@ function Admin() {
                     </Routes>
                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                         <Button className="m-4">
-                            <Link to="/admin" style={{ color: 'white', textDecoration: 'none' }}>home</Link>
+                            <Link to="/admin" style={{ color: 'white', textDecoration: 'none' }}>首頁</Link>
                         </Button>
                         <Button onClick={handleLogout} className="m-4">
-                            Logout
+                            登出
                         </Button>
                     </div>
                 </div>) :

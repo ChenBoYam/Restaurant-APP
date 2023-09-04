@@ -6,13 +6,13 @@ const Home = () => {
 
     return (
         <div className='home-container'>
-            <h1 className='home-title'>Home</h1>
+            <h1 className='home-title'>首頁</h1>
             <div className="links-container">
-                <Link to={"/admin/about"}>about</Link>
-                <Link to={"/admin/menu"}>menu</Link>
-                <Link to={"/admin/gallery"}>gallery</Link>
-                <Link to={"/admin/contact"}>contact</Link>
-                <Link to={"/admin/events"}>events</Link>
+                <Link to={"/admin/about"}>關於我們</Link>
+                <Link to={"/admin/menu"}>暖食菜單</Link>
+                <Link to={"/admin/gallery"}>精選照片</Link>
+                <Link to={"/admin/contact"}>聯絡我們</Link>
+                <Link to={"/admin/events"}>最新消息</Link>
             </div>
         </div>
     );

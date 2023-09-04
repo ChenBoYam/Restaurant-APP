@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
+import { Link } from "react-router-dom";
+
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -16,43 +18,9 @@ function Footer() {
     return (
         <div>
             <footer id="footer">
-                <div className="footer-top">
-                    <Container>
-                        <Row>
-                            <Col lg={3} md={6}>
-                                <div className="footer-info">
-                                    <h3>三餐暖食</h3>
-                                    <p>
-                                        高雄市苓雅區中興街167號 <br />
-                                        <strong>Phone:</strong> (07)334-6263<br />
-                                        <strong>Email:</strong> info@example.com<br />
-                                    </p>
-                                    <div className="social-links mt-3">
-                                        <a href="/#" className="twitter"><i className="bx bxl-twitter"></i></a>
-                                        <a href="/#" className="facebook"><i className="bx bxl-facebook"></i></a>
-                                        <a href="/#" className="instagram"><i className="bx bxl-instagram"></i></a>
-                                        <a href="/#" className="google-plus"><i className="bx bxl-skype"></i></a>
-                                        <a href="/#" className="linkedin"><i className="bx bxl-linkedin"></i></a>
-                                    </div>
-                                </div>
-                            </Col>
-
-                            {/* Additional footer columns can be added here */}
-                        </Row>
-                    </Container>
+                <div className="text-center">
+                    <Button className="admin-btn"><Link to="/admin">ADMIN</Link></Button>
                 </div>
-
-                <Container>
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-lg-12 text-center">
-                                <div className="credits">
-                                    Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </Container>
             </footer>
         </div>
     );

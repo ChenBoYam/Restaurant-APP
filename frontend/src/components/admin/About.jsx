@@ -15,8 +15,6 @@ const About = () => {
   const [image, setImage] = useState(null);
   const [aboutInfo, setAboutInfo] = useState([]);  // State to hold existing data
   const [editingEntry, setEditingEntry] = useState(null);
-  const uploadPath = "http://localhost:3500/"
-
   // Fetch existing data when component mounts
   useEffect(() => {
     const fetchAboutInfo = async () => {
@@ -94,18 +92,18 @@ const About = () => {
 
   return (
     <Container className="home-container">
-      <h1 className="home-title">About</h1>
+      <h1 className="home-title">關於我們</h1>
 
       <Form onSubmit={handleSubmit}>
         <Form.Group as={Row}>
-          <Form.Label column sm={2}>Title:</Form.Label>
+          <Form.Label column sm={2}>標題:</Form.Label>
           <Col sm={10}>
             <Form.Control type="text" name="title" value={data.title} onChange={handleChange} />
           </Col>
         </Form.Group>
 
         <Form.Group as={Row}>
-          <Form.Label column sm={2}>Sub Title:</Form.Label>
+          <Form.Label column sm={2}>副標題:</Form.Label>
           <Col sm={10}>
             <Form.Control type="text" name="subTitle" value={data.subTitle} onChange={handleChange} />
           </Col>
@@ -113,7 +111,7 @@ const About = () => {
 
         {data.bulletPoints.map((point, index) => (
           <Form.Group as={Row} key={index}>
-            <Form.Label column sm={2}>Bullet Point {index + 1}:</Form.Label>
+            <Form.Label column sm={2}>特色 {index + 1}:</Form.Label>
             <Col sm={10}>
               <Form.Control
                 type="text"
@@ -132,7 +130,7 @@ const About = () => {
           </Form.Group>
         ))}
         <Form.Group as={Row}>
-          <Form.Label column sm={2}>Intro:</Form.Label>
+          <Form.Label column sm={2}>介紹:</Form.Label>
           <Col sm={10}>
             <Form.Control as="textarea" name="intro" value={data.intro} onChange={handleChange} />
           </Col>
@@ -140,19 +138,19 @@ const About = () => {
 
 
         <Form.Group as={Row}>
-          <Form.Label column sm={2}>img name:</Form.Label>
+          <Form.Label column sm={2}>照片名:</Form.Label>
           <Col sm={10}>
             <Form.Control type="text" name="imgName" value={data.imgName} onChange={handleChange} />
           </Col>
         </Form.Group>
         <Form.Group as={Row}>
-          <Form.Label column sm={2}>Upload Image:</Form.Label>
+          <Form.Label column sm={2}>照片:</Form.Label>
           <Col sm={10}>
             <Form.Control type="file" name="imgName" onChange={handleImageChange} />
           </Col>
         </Form.Group>
 
-        <Button type="submit">Submit</Button>
+        <Button type="submit">提交</Button>
       </Form>
 
       <Row className="mt-4">
@@ -160,25 +158,25 @@ const About = () => {
           <Col xs={12} md={4} className="info-card mb-4" key={info._id}>
             <div className="info-container">
               <div className="info-header">
-                <h3 className="info-title">Title: {info.title}</h3>
-                <h5 className="info-subtitle">Sub Title: {info.subTitle}</h5>
+                <h3 className="info-title">標題: {info.title}</h3>
+                <h5 className="info-subtitle">副標題: {info.subTitle}</h5>
               </div>
               <div className="info-body">
-                <h6>Bullet Points:</h6>
+                <h6>特色:</h6>
                 <ul className="info-bullet-points" style={{listStyleType: "none"}}>
                   {info.bulletPoints.map((point, index) => (
                     <li key={index}>{point}</li>
                   ))}
                 </ul>
-                <h6>Introduction:</h6>
+                <h6>介紹:</h6>
                 <p className="info-intro">{info.intro}</p>
               </div>
               <div className="info-footer">
-                <h6>Image:</h6>
+                <h6>照片:</h6>
                 <img src={process.env.REACT_APP_SERVER_ADDRESS + "/" + info.imgPath} alt={info.imgName} className="info-img" style={{ width: "100%" }} />
               </div>
               <Button className="info-update-button mt-2" onClick={() => setEditingEntry(info)}>
-                Update
+                更新
               </Button>
             </div>
           </Col>
@@ -188,17 +186,17 @@ const About = () => {
 
       {editingEntry && (
         <Form onSubmit={handleUpdate}>
-          <h3>Update Entry</h3>
+          <h3>更新內容</h3>
 
           <Form.Group as={Row}>
-            <Form.Label column sm={2}>Title:</Form.Label>
+            <Form.Label column sm={2}>標題:</Form.Label>
             <Col sm={10}>
               <Form.Control type="text" name="title" value={editingEntry.title} onChange={(e) => setEditingEntry({ ...editingEntry, title: e.target.value })} />
             </Col>
           </Form.Group>
 
           <Form.Group as={Row}>
-            <Form.Label column sm={2}>Sub Title:</Form.Label>
+            <Form.Label column sm={2}>副標題:</Form.Label>
             <Col sm={10}>
               <Form.Control type="text" name="subTitle" value={editingEntry.subTitle} onChange={(e) => setEditingEntry({ ...editingEntry, subTitle: e.target.value })} />
             </Col>
@@ -206,7 +204,7 @@ const About = () => {
 
           {editingEntry.bulletPoints.map((point, index) => (
             <Form.Group as={Row} key={index}>
-              <Form.Label column sm={2}>Bullet Point {index + 1}:</Form.Label>
+              <Form.Label column sm={2}>特色 {index + 1}:</Form.Label>
               <Col sm={10}>
                 <Form.Control
                   type="text"
@@ -223,27 +221,27 @@ const About = () => {
           ))}
 
           <Form.Group as={Row}>
-            <Form.Label column sm={2}>Intro:</Form.Label>
+            <Form.Label column sm={2}>介紹:</Form.Label>
             <Col sm={10}>
               <Form.Control as="textarea" name="intro" value={editingEntry.intro} onChange={(e) => setEditingEntry({ ...editingEntry, intro: e.target.value })} />
             </Col>
           </Form.Group>
 
           <Form.Group as={Row}>
-            <Form.Label column sm={2}>img name:</Form.Label>
+            <Form.Label column sm={2}>照片名:</Form.Label>
             <Col sm={10}>
               <Form.Control type="text" name="imgName" value={editingEntry.imgName} onChange={(e) => setEditingEntry({ ...editingEntry, imgName: e.target.value })} />
             </Col>
           </Form.Group>
 
           <Form.Group as={Row}>
-            <Form.Label column sm={2}>Upload New Image:</Form.Label>
+            <Form.Label column sm={2}>照片:</Form.Label>
             <Col sm={10}>
               <Form.Control type="file" name="imgName" onChange={handleImageChange} />
             </Col>
           </Form.Group>
 
-          <Button className="mt-2" type="submit">Update</Button>
+          <Button className="mt-2" type="submit">更新</Button>
         </Form>
       )}
 

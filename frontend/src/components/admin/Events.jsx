@@ -7,8 +7,6 @@ const Events = () => {
   const [file, setFile] = useState(null);
   const [eventName, setEventName] = useState(""); // State to hold the file name
   const [images, setImages] = useState([]);
-  const uploadPath = "http://localhost:3500/"
-
 
   useEffect(() => {
     const fetchImages = async () => {
@@ -66,7 +64,7 @@ const Events = () => {
 
   return (
     <div className='home-container'>
-      <h1 className='home-title'>Event</h1>
+      <h1 className='home-title'>最新消息</h1>
 
       <input
         type="file"
@@ -76,14 +74,14 @@ const Events = () => {
           // setFileName(e.target.files[0].name);  // Set the filename when a file is selected
         }}
       />
-      <label>Set Filename: </label>
+      <label>消息名稱: </label>
       <input
         type="text"
         placeholder="Enter eventName"
         value={eventName}
         onChange={(e) => setEventName(e.target.value)}
       />
-      <Button onClick={uploadImage}>Upload</Button>
+      <Button onClick={uploadImage}>上傳</Button>
 
       <Row className="mt-4">
         {images.map(image => (

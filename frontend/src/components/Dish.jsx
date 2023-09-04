@@ -2,7 +2,6 @@ import React from 'react';
 import { Col, Image, Badge } from 'react-bootstrap';
 
 const Dish = ({ dish }) => {
-  const uploadPath = "http://localhost:3500/"
 
   return (
     <Col md={4} xs={6}>
@@ -17,11 +16,11 @@ const Dish = ({ dish }) => {
         </div>
         <div className="dish_info">
           {dish.note && <div className="jp_name"><Badge variant="success">※新品上市</Badge></div>}
-          <div className="tw_name mt-4">
+          <div className="tw_name mt-4" style={{fontSize:"24px"}}>
             {dish.title}
-            {dish.price && <span className="price">{dish.price}</span>}
+            {dish.price && <span className="price" style={{fontSize:"24px"}}> {dish.price}元</span>}
           </div>
-        </div>
+        </div> 
       </div>
     </Col>
     

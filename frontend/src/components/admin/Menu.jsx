@@ -92,32 +92,32 @@ const Menu = () => {
 
   return (
     <Container className="home-container">
-      <h1 className="home-title">Menu</h1>
+      <h1 className="home-title">暖食菜單</h1>
 
       <Form onSubmit={handleSubmit}>
         <Form.Group as={Row}>
-          <Form.Label column sm={2}>Title:</Form.Label>
+          <Form.Label column sm={2}>菜名:</Form.Label>
           <Col sm={10}>
             <Form.Control type="text" name="title" value={data.title} onChange={handleChange} />
           </Col>
         </Form.Group>
 
         <Form.Group as={Row}>
-          <Form.Label column sm={2}>price:</Form.Label>
+          <Form.Label column sm={2}>價格:</Form.Label>
           <Col sm={10}>
             <Form.Control type="text" name="price" value={data.price} onChange={handleChange} />
           </Col>
         </Form.Group>
 
         <Form.Group as={Row}>
-          <Form.Label column sm={2}>note:</Form.Label>
+          <Form.Label column sm={2}>備注:</Form.Label>
           <Col sm={10}>
             <Form.Control type="text" name="note" value={data.note} onChange={handleChange} />
           </Col>
         </Form.Group>
 
         <Form.Group as={Row}>
-          <Form.Label column sm={2}>category:</Form.Label>
+          <Form.Label column sm={2}>類別:</Form.Label>
           <Col sm={10}>
             <Form.Control type="text" name="category" value={data.category} onChange={handleChange} />
           </Col>
@@ -125,20 +125,20 @@ const Menu = () => {
 
 
         <Form.Group as={Row}>
-          <Form.Label column sm={2}>img name:</Form.Label>
+          <Form.Label column sm={2}>照片名:</Form.Label>
           <Col sm={10}>
             <Form.Control type="text" name="imgName" value={data.imgName} onChange={handleChange} />
           </Col>
         </Form.Group>
 
         <Form.Group as={Row}>
-          <Form.Label column sm={2}>Upload Image:</Form.Label>
+          <Form.Label column sm={2}>上傳照片:</Form.Label>
           <Col sm={10}>
             <Form.Control type="file" name="imgName" onChange={handleImageChange} />
           </Col>
         </Form.Group>
 
-        <Button type="submit">Submit</Button>
+        <Button type="submit">提交</Button>
       </Form>
 
       <Row className="mt-4">
@@ -154,17 +154,17 @@ const Menu = () => {
             <Col xs={12} md={4} className="info-card mb-4" key={info._id}>
               <div className="info-container">
                 <div className="info-header">
-                  <h3 className="info-title">Title: {info.title}</h3>
-                  <h5 className="info-subtitle">price: {info.price}</h5>
-                  <h5 className="info-subtitle">note: {info.note}</h5>
-                  <h5 className="info-subtitle">category: {info.category}</h5>
+                  <h3 className="info-title">菜名: {info.title}</h3>
+                  <h5 className="info-subtitle">價格: {info.price}</h5>
+                  <h5 className="info-subtitle">備注: {info.note}</h5>
+                  <h5 className="info-subtitle">類別: {info.category}</h5>
                 </div>
                 <div className="info-footer">
-                  <h5>Image:</h5>
+                  <h5>照片:</h5>
                   <img src={process.env.REACT_APP_SERVER_ADDRESS + "/" + info.imgPath} alt={info.imgName} className="info-img" style={{ width: "100%" }} />
                 </div>
                 <Button className="info-delete-button mt-2" onClick={() => handleDelete(info._id, info.imgPath)}>
-                  Delete
+                  刪除
                 </Button>
               </div>
             </Col>

@@ -65,40 +65,40 @@ const Contact = () => {
 
   return (
     <Container className='home-container'>
-      <h1 className='home-title'>Contact</h1>
+      <h1 className='home-title'>聯絡我們</h1>
 
       <div className="contact-details mb-4">
         <Row>
-          <Col><strong>Address:</strong> {address || 'N/A'}</Col>
-          <Col><strong>Email:</strong> {email || 'N/A'}</Col>
-          <Col><strong>Phone:</strong> {phone || 'N/A'}</Col>
-          <Col><strong>Time:</strong> {time || 'N/A'}</Col>
+          <Col><strong>地址:</strong> {address || 'N/A'}</Col>
+          <Col><strong>信箱:</strong> {email || 'N/A'}</Col>
+          <Col><strong>電話:</strong> {phone || 'N/A'}</Col>
+          <Col><strong>營業時間:</strong> {time || 'N/A'}</Col>
         </Row>
       </div>
 
-      <h2 className="mb-3">Add New Contact</h2>
+      <h2 className="mb-3">更新聯絡我們</h2>
       <Form onSubmit={handleSubmit}>
         <Form.Group>
-          <Form.Label>Address:</Form.Label>
+          <Form.Label>地址:</Form.Label>
           <Form.Control type="text" name="address" value={formData.address} onChange={handleInputChange} />
         </Form.Group>
 
         <Form.Group>
-          <Form.Label>Email:</Form.Label>
+          <Form.Label>信箱:</Form.Label>
           <Form.Control type="email" name="email" value={formData.email} onChange={handleInputChange} />
         </Form.Group>
 
         <Form.Group>
-          <Form.Label>Phone:</Form.Label>
+          <Form.Label>電話:</Form.Label>
           <Form.Control type="tel" name="phone" value={formData.phone} onChange={handleInputChange} />
         </Form.Group>
 
         <Form.Group>
-          <Form.Label>Time:</Form.Label>
+          <Form.Label>營業時間:</Form.Label>
           <Form.Control type="text" name="time" value={formData.time} onChange={handleInputChange} />
         </Form.Group>
 
-        <Button className="mt-4" type="submit">Add Contact</Button>
+        <Button className="mt-4" type="submit">更新</Button>
       </Form>
     </Container>
   );

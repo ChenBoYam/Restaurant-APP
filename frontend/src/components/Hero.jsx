@@ -5,6 +5,17 @@ import 'aos/dist/aos.css';
 import bg from "../img/菜.jpg"
 
 function Hero() {
+    const handleNavClick = (e, target) => {
+        e.preventDefault();
+        const offset = 100; // Height of the fixed header
+        const element = document.querySelector(target);
+        const topPosition = element.offsetTop - offset;
+
+        window.scrollTo({
+            top: topPosition,
+            behavior: 'smooth',
+        });
+    };
     useEffect(() => {
         AOS.init({
             duration: 1000,
@@ -32,8 +43,8 @@ function Hero() {
                             <h2>暖口 暖心 暖胃</h2>
 
                             <div className="btns">
-                                <Button href="#menu" className="btn-menu animated fadeInUp scrollto">菜單</Button>
-                                <Button href="#book-a-table" className="btn-book animated fadeInUp scrollto">訂位</Button>
+                                <Button href="#menu" className="btn-menu animated fadeInUp" onClick={(e) => handleNavClick(e, '#menu')}>菜單</Button>
+                                {/* <Button href="#book-a-table" className="btn-book animated fadeInUp scrollto">訂位</Button> */}
                             </div>
                         </Col>
                         {/* <Col lg={4} className="d-flex align-items-center justify-content-center position-relative" data-aos="zoom-in" data-aos-delay="200">
