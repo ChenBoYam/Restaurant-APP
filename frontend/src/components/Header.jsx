@@ -1,5 +1,7 @@
 import React from 'react';
-import { Container, Navbar, Nav } from 'react-bootstrap';
+import { Container, Navbar, Nav, Button } from 'react-bootstrap';
+import { Routes, Route, Link } from "react-router-dom";
+
 import Login from './Login';
 import ReservationForm from "./Reservation";
 import logoImg from "../img/3mealfood_logo.png" 
@@ -47,6 +49,9 @@ function Header() {
                 <Nav.Link href="#contact" className="nav-link scrollto" onClick={(e) => handleNavClick(e, '#contact')}>
                   聯絡我們
                 </Nav.Link>
+                <Button className="m-4">
+                  <Link to="/admin" style={{ color: 'white', textDecoration: 'none' }}>home</Link>
+                </Button>
               </Nav>
             </Navbar.Collapse>
           </Navbar>

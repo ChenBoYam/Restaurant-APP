@@ -20,8 +20,10 @@ const upload = multer({ storage: storage });
 
 const getAllAboutEntries = async (req, res) => {
   try {
+    res.sendFile( path.join( __dirname, '..', 'views', 'index.html' ) )
     const entries = await About.find().lean();
     res.json(entries);
+    
   } catch (error) {
     console.error("Error fetching about entries:", error);
     return res.status(500).json({ message: "Server Error" });

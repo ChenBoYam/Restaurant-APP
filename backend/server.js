@@ -26,6 +26,7 @@ app.use( cookieParser() )
 
 // express.static is a biuld in middleware
 app.use( '/', express.static( path.join( __dirname, 'public' ) ) )
+// app.use( "/admin", express.static(path.resolve(__dirname, '../frontend/build')));
 
 app.use( '/', require( './routes/root' ) )
 app.use( '/users', require( './routes/userRoutes' ) )
