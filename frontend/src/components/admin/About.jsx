@@ -55,7 +55,7 @@ const About = () => {
       });
       if (response.status >= 200 && response.status < 300) {
         console.log('Data uploaded successfully!');
-        window.location.reload();
+        // window.location.reload();
       } else {
         console.error('Error uploading data:', await response.text());
       }
@@ -80,7 +80,6 @@ const About = () => {
 
       if (response.status >= 200 && response.status < 300) {
         console.log('Data updated successfully!');
-        window.location.reload();
       } else {
         console.error('Error updating data:', await response.text());
       }

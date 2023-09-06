@@ -4,14 +4,10 @@ import { Form, Button } from 'react-bootstrap';
 function Login({ onLogin }) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const admin = process.env.REACT_APP_ADMIN_ACCOUNT;
-    const pass = process.env.REACT_APP_ADMIN_PASSWORD;
 
     const handleLogin = () => {
-        console.log(admin)
-        console.log(pass)
 
-        if (username === admin && password === pass) {
+        if (username === process.env.REACT_APP_ADMIN_ACCOUNT && password === process.env.REACT_APP_ADMIN_PASSWORD) {
             onLogin(); // Call the onLogin prop to update authentication state in the parent component
         } else {
             alert('Invalid credentials');

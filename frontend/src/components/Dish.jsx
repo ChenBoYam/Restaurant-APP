@@ -15,15 +15,19 @@ const Dish = ({ dish }) => {
           />
         </div>
         <div className="dish_info">
-          {dish.note && <div className="jp_name"><Badge variant="success">※新品上市</Badge></div>}
-          <div className="tw_name mt-4" style={{fontSize:"24px"}}>
+          {dish.note
+            ? <div className="jp_name"><Badge variant="success">※新品上市</Badge></div>
+            : <div className="jp_name"><Badge variant="success"></Badge></div>
+          }
+        </div>
+        <div>
+          <div className="tw_name mt-4" style={{ fontSize: "24px" }}>
             {dish.title}
-            {dish.price && <span className="price" style={{fontSize:"24px"}}> {dish.price}元</span>}
+            {dish.price && <span className="price" style={{ fontSize: "24px" }}> {dish.price}元</span>}
           </div>
-        </div> 
+        </div>
       </div>
     </Col>
-    
   );
 }
 

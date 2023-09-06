@@ -5,6 +5,7 @@ const Contact = require('../models/Contact');
 // @route GET /contact
 // @access private (based on your user routes)
 const getContact = async (req, res) => {
+    console.log("good")
     try {
         const contacts = await Contact.find().lean();
         if (!contacts?.length) {

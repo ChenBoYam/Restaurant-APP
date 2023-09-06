@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Container, Form, Button, Row, Col } from 'react-bootstrap';
 
+
 const Menu = () => {
   const [data, setData] = useState({
     title: '',
@@ -15,8 +16,6 @@ const Menu = () => {
   const [image, setImage] = useState(null);
   const [aboutInfo, setAboutInfo] = useState([]);  // State to hold existing data
   const [selectedCategory, setSelectedCategory] = useState('');
-
-  const uploadPath = "http://localhost:3500/"
 
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
@@ -62,7 +61,6 @@ const Menu = () => {
       });
       if (response.status >= 200 && response.status < 300) {
         console.log('Data uploaded successfully!');
-        window.location.reload();
       } else {
         console.error('Error uploading data:', await response.text());
       }
