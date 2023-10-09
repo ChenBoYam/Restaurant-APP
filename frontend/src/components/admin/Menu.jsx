@@ -6,9 +6,9 @@ import { Container, Form, Button, Row, Col } from 'react-bootstrap';
 const Menu = () => {
   const [data, setData] = useState({
     title: '',
-    subTitle: '',
-    bulletPoints: ['', '', ''],
-    intro: '',
+    price: '',
+    note: '',
+    category: '',
     imgName: '',
     imgPath: ''
   });
@@ -17,20 +17,32 @@ const Menu = () => {
   const [aboutInfo, setAboutInfo] = useState([]);  // State to hold existing data
   const [selectedCategory, setSelectedCategory] = useState('');
 
+  const initData = () => {
+    setData({
+      title: '',
+      price: '',
+      note: '',
+      category: '',
+      imgName: '',
+      imgPath: ''
+    });
+    setImage(null);
+  };
+
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
   };
 
   // Fetch existing data when component mounts
+  const fetchAboutInfo = async () => {
+    try {
+      const response = await axios.get(`${process.env.REACT_APP_SERVER_ADDRESS}/admin/menu`);
+      setAboutInfo(response.data);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
   useEffect(() => {
-    const fetchAboutInfo = async () => {
-      try {
-        const response = await axios.get(`${process.env.REACT_APP_SERVER_ADDRESS}/admin/menu`);
-        setAboutInfo(response.data);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
     fetchAboutInfo();
   }, []);
 
@@ -61,6 +73,8 @@ const Menu = () => {
       });
       if (response.status >= 200 && response.status < 300) {
         console.log('Data uploaded successfully!');
+        fetchAboutInfo();
+        initData();
       } else {
         console.error('Error uploading data:', await response.text());
       }
@@ -73,7 +87,7 @@ const Menu = () => {
   const handleDelete = async (id, imgPath) => {
     try {
       const response = await axios.delete(`${process.env.REACT_APP_SERVER_ADDRESS}/admin/menu/${id}`);
-      if (response.status === 200) {
+      if (response.status >= 200 && response.status < 300) {
         console.log('Data deleted successfully!');
         // Remove the deleted entry from the state
         setAboutInfo(prevAboutInfo => prevAboutInfo.filter(info => info._id !== id));
@@ -142,10 +156,10 @@ const Menu = () => {
       <Row className="mt-4">
 
         <div className="category-buttons">
-          <Button onClick={() => handleCategoryClick('定食')} style={{marginRight: "10px"}}>定食</Button>
+          <Button onClick={() => handleCategoryClick('定食')} style={{ marginRight: "10px" }}>定食</Button>
           <Button onClick={() => handleCategoryClick('單點')}>單點</Button>
         </div>
-        
+
         {aboutInfo
           .filter(info => !selectedCategory || info.category === selectedCategory)
           .map((info) => (
